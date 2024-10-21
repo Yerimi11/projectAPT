@@ -3,16 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>당신의 아파트 동물 캐릭터</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Nanum Gothic', sans-serif; text-align: center; background-color: #f0f0f0; }
-        #character { font-size: 120px; margin: 30px 0; }
-        #description { font-size: 20px; margin: 20px 0; line-height: 1.6; }
-        .result-container { background-color: white; border-radius: 15px; padding: 20px; max-width: 600px; margin: 0 auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        body {
+            font-family: 'Jua', sans-serif;
+            text-align: center;
+            background-color: #f9f3f3;
+            color: #333;
+        }
+        .result-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #ff8080;
+            font-size: 28px;
+        }
+        #character {
+            font-size: 120px;
+            margin: 30px 0;
+        }
+        #description {
+            font-size: 18px;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        h2 {
+            color: #5d5d5d;
+            font-size: 24px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
     <div class="result-container">
-        <h1>당신의 아파트 동물 캐릭터</h1>
+        <h1>🏠 당신의 아파트 동물 캐릭터 🏠</h1>
         <?php
         $results = json_decode($_POST['results'], true);
         
@@ -118,13 +154,13 @@
         <div id="description">
             <p>당신의 아파트 동물 캐릭터는 <strong><?php echo $animalName; ?></strong>입니다!</p>
             <p><?php echo htmlspecialchars($description); ?> 특성을 가진 아파트 주민이군요!</p>
-            <p>당신은 <?php echo implode("고 ", $animalTraits); ?>한 성격을 가지고 있습니다.</p>
+            <p>당신은 <?php echo implode(", 그리고 ", $animalTraits); ?> 성격을 가지고 있습니다.</p>
         </div>
         
-        <h2>당신의 아파트 생활 스타일</h2>
+        <h2>🌟 당신의 아파트 생활 스타일 🌟</h2>
         <ul>
             <?php foreach ($scores as $trait => $score): ?>
-                <li><?php echo $trait; ?>: <?php echo str_repeat('★', $score); ?></li>
+                <li><?php echo $trait; ?>: <?php echo str_repeat('⭐', $score); ?></li>
             <?php endforeach; ?>
         </ul>
     </div>
