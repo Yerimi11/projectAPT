@@ -39,20 +39,23 @@
             background-color: #ffa8a8;
             border: none;
             color: white;
-            padding: 10px 20px;
-            margin: 10px;
+            padding: 15px 30px;
+            margin: 10px auto;
             border-radius: 25px;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
             transition: background-color 0.3s;
             font-family: 'Jua', sans-serif;
+            display: block;
+            width: 80%;
         }
         button:hover {
             background-color: #ff8080;
         }
         #submit-button {
             background-color: #80b3ff;
-            font-size: 18px;
+            font-size: 20px;
+            margin: 20px auto;
         }
         #submit-button:hover {
             background-color: #5c9eff;
@@ -117,7 +120,9 @@
                 </div>
             </div>
             <input type="hidden" name="results" id="results">
-            <button type="submit" id="submit-button" style="display: none;">결과 보기 🎉</button>
+            <div style="text-align: center;">
+                <button type="submit" id="submit-button" style="display: none;">결과 보기 🎉</button>
+            </div>
         </form>
     </div>
 
@@ -128,6 +133,7 @@ const answers = {};
 
 function selectAnswer(questionNumber, answer) {
     answers[questionNumber] = answer;
+    console.log(answers);
     document.getElementById('results').value = JSON.stringify(answers);
 
     if (questionNumber < totalQuestions) {

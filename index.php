@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나만의 아파트 성격 테스트</title>
+    <title>나에게 어울리는 아파트는?</title>
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2599437760542212" crossorigin="anonymous"></script>
     <style>
         body {
             font-family: 'Jua', sans-serif;
@@ -56,8 +57,8 @@
         <h1>🏠 나만의 아파트 성격 테스트 🏠</h1>
         <img src="./image.jpeg" alt="Rosé & Bruno Mars" class="main-image">
         <p>
-            당신의 아파트 생활 스타일은 어떤가요? 🤔<br>
-            재미있는 질문들에 답하고 나만의 아파트 동물 캐릭터를 알아보세요! 🐰🐻🦊
+            당신의 거주 스타일은 어떤가요? 🤔<br>
+            재미있는 질문들에 답하고 나만의 캐릭터와 어울리는 주거지를 알아보세요! 🐰🐻🦊
         </p>
         <a href="test.php" class="start-button">테스트 시작하기 🎉</a>
     </div>
@@ -68,8 +69,7 @@
         <!-- 광고 단위 1 -->
         <ins class="adsbygoogle"
              style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-             data-ad-slot="XXXXXXXXXX"
+             data-ad-client="ca-pub-2599437760542212"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
         <script>

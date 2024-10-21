@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>당신의 아파트 동물 캐릭터</title>
+    <title>당신의 거주 캐릭터와 어울리는 주거지</title>
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <style>
         body {
@@ -48,7 +48,7 @@
 </head>
 <body>
     <div class="result-container">
-        <h1>🏠 당신의 아파트 동물 캐릭터 🏠</h1>
+        <h1>🏠 당신의 거주 캐릭터와 어울리는 주거지 🏠</h1>
         <?php
         $results = json_decode($_POST['results'], true);
         
@@ -65,6 +65,28 @@
             '🦉' => ['부엉이', '지적인', '신중한']
         ];
 
+        $residences = [
+            '트리마제 아파트',
+            '한강뷰 펜트하우스',
+            '북촌 한옥',
+            '강남 오피스텔',
+            '제주도 독채 펜션',
+            '한적한 시골 농가',
+            '도심 속 빌라',
+            '산장',
+            '해변가 별장',
+            '길바닥',
+            '공항 벤치 위',
+            '숲속 글램핑장',
+            '지하철역 화장실',
+            '동물원 원숭이 우리',
+            '편의점 냉장고 안',
+            '거대 햄스터 쳇바퀴',
+            '슈퍼마리오의 파이프 속',
+            '포켓몬 몬스터볼 안',
+            '스폰지밥의 파인애플 집'
+        ];
+
         $traits = [];
         $scores = [
             '활발' => 0, '조용' => 0, '사교적' => 0, '독립적' => 0,
@@ -72,60 +94,84 @@
         ];
 
         // 질문별 점수 계산
-        if ($results[1] == "1-5") {
+        if ($results[1] == "A") {
             $scores['조용'] += 3; $scores['안정적'] += 2;
-            $traits[] = "아늑한 저층을 좋아하는";
-        } elseif ($results[1] == "6-10") {
-            $scores['활발'] += 2; $scores['사교적'] += 2;
-            $traits[] = "균형 잡힌 중층을 선호하는";
+            $traits[] = "조용한 환경을 선호하는";
         } else {
-            $scores['모험적'] += 3; $scores['독립적'] += 2;
-            $traits[] = "탁 트인 전망의 고층을 즐기는";
+            $scores['모험적'] += 3; $scores['활발'] += 2;
+            $traits[] = "활기찬 도시 생활을 즐기는";
         }
 
-        if ($results[2] == "화이트") {
-            $scores['활발'] += 2; $scores['실용적'] += 1;
-            $traits[] = "깨끗하고 밝은 분위기를 좋아하는";
-        } elseif ($results[2] == "베이지") {
-            $scores['조용'] += 2; $scores['안정적'] += 1;
-            $traits[] = "따뜻하고 편안한 분위기를 선호하는";
+        if ($results[2] == "A") {
+            $scores['창의적'] += 3; $scores['사교적'] += 2;
+            $traits[] = "엔터테인먼트를 즐기는";
         } else {
-            $scores['창의적'] += 2; $scores['독립적'] += 1;
-            $traits[] = "모던하고 세련된 분위기를 추구하는";
+            $scores['실용적'] += 3; $scores['독립적'] += 2;
+            $traits[] = "안전을 중시하는";
         }
 
-        // 나머지 질문들에 대한 점수 계산
-        if ($results[3] == "넓은 거실") {
+        if ($results[3] == "A") {
             $scores['사교적'] += 3; $scores['활발'] += 2;
-            $traits[] = "넓은 공간에서 모임을 즐기는";
-        } elseif ($results[3] == "큰 주방") {
-            $scores['실용적'] += 3; $scores['창의적'] += 2;
-            $traits[] = "요리와 식사를 중요하게 여기는";
+            $traits[] = "사교적이고 외향적인";
+        } else {
+            $scores['조용'] += 3; $scores['독립적'] += 2;
+            $traits[] = "프라이버시를 중시하는";
+        }
+
+        if ($results[4] == "A") {
+            $scores['사교적'] += 3; $scores['활발'] += 2;
+            $traits[] = "파티를 즐기는";
+        } else {
+            $scores['조용'] += 3; $scores['실용적'] += 2;
+            $traits[] = "평화로운 환경을 선호하는";
+        }
+
+        if ($results[5] == "A") {
+            $scores['사교적'] += 2; $scores['창의적'] += 3;
+            $traits[] = "야외 활동을 즐기는";
+        } else {
+            $scores['조용'] += 2; $scores['독립적'] += 3;
+            $traits[] = "실내 활동을 선호하는";
+        }
+
+        if ($results[6] == "A") {
+            $scores['모험적'] += 3; $scores['창의적'] += 2;
+            $traits[] = "호기심 많은";
+        } else {
+            $scores['안정적'] += 3; $scores['조용'] += 2;
+            $traits[] = "안전을 중시하는";
+        }
+
+        if ($results[7] == "A") {
+            $scores['사교적'] += 3; $scores['활발'] += 2;
+            $traits[] = "이웃과 소통하는 것을 좋아하는";
+        } else {
+            $scores['독립적'] += 3; $scores['실용적'] += 2;
+            $traits[] = "자립심이 강한";
+        }
+
+        if ($results[8] == "A") {
+            $scores['사교적'] += 2; $scores['활발'] += 3;
+            $traits[] = "반려동물을 사랑하는";
+        } else {
+            $scores['독립적'] += 2; $scores['창의적'] += 3;
+            $traits[] = "독특한 취미를 가진";
+        }
+
+        if ($results[9] == "A") {
+            $scores['사교적'] += 3; $scores['창의적'] += 2;
+            $traits[] = "새로운 사람들과 어울리기를 좋아하는";
         } else {
             $scores['독립적'] += 3; $scores['조용'] += 2;
-            $traits[] = "개인적인 공간을 소중히 여기는";
+            $traits[] = "신중하고 조심스러운";
         }
 
-        if ($results[4] == "공원") {
-            $scores['활발'] += 2; $scores['안정적'] += 2;
-            $traits[] = "자연과 가까이 지내고 싶어하는";
-        } elseif ($results[4] == "카페거리") {
-            $scores['사교적'] += 3; $scores['창의적'] += 1;
-            $traits[] = "문화생활을 즐기는";
+        if ($results[10] == "A") {
+            $scores['활발'] += 3; $scores['사교적'] += 2;
+            $traits[] = "적극적이고 주도적인";
         } else {
-            $scores['실용적'] += 3; $scores['독립적'] += 1;
-            $traits[] = "편리한 생활을 추구하는";
-        }
-
-        if ($results[5] == "반려동물") {
-            $scores['사교적'] += 2; $scores['활발'] += 2;
-            $traits[] = "동물을 사랑하는";
-        } elseif ($results[5] == "식물") {
-            $scores['조용'] += 2; $scores['창의적'] += 2;
-            $traits[] = "식물 가꾸기를 좋아하는";
-        } else {
-            $scores['실용적'] += 2; $scores['독립적'] += 2;
-            $traits[] = "깔끔하고 정돈된 환경을 선호하는";
+            $scores['조용'] += 3; $scores['독립적'] += 2;
+            $traits[] = "변화를 선호하는";
         }
 
         // 최종 동물 선택
@@ -145,6 +191,9 @@
         } else {
             $selectedAnimal = array_rand($compatibleAnimals);
         }
+        // 주거지 선택
+        $residenceIndex = array_rand($residences);
+        $selectedResidence = $residences[$residenceIndex];
 
         $animalName = $animals[$selectedAnimal][0];
         $animalTraits = array_slice($animals[$selectedAnimal], 1);
@@ -152,12 +201,21 @@
         ?>
         <div id="character"><?php echo $selectedAnimal; ?></div>
         <div id="description">
-            <p>당신의 아파트 동물 캐릭터는 <strong><?php echo $animalName; ?></strong>입니다!</p>
-            <p><?php echo htmlspecialchars($description); ?> 특성을 가진 아파트 주민이군요!</p>
+        <p style="font-size: 21px;">당신의 아파트 동물 캐릭터는 <strong><?php echo $animalName; ?></strong>입니다!</p>
+            <p>
+                <?php
+                $traits = explode(", ", htmlspecialchars($description));
+                foreach ($traits as $trait) {
+                    echo $trait . "<br>";
+                }
+                ?>
+                특성을 가진 아파트 주민이군요!
+            </p>
             <p>당신은 <?php echo implode(", 그리고 ", $animalTraits); ?> 성격을 가지고 있습니다.</p>
+            <p style="font-size: 24px;">당신에게 어울리는 주거지는 <strong><?php echo $selectedResidence; ?></strong>입니다!</p>
         </div>
         
-        <h2>🌟 당신의 아파트 생활 스타일 🌟</h2>
+        <h2>🌟 당신의 주거 스타일 🌟</h2>
         <ul>
             <?php foreach ($scores as $trait => $score): ?>
                 <li><?php echo $trait; ?>: <?php echo str_repeat('⭐', $score); ?></li>
