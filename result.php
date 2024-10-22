@@ -6,11 +6,19 @@
     <!-- <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            font-family: 'CookieRun-Regular', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f3f3;
+            text-align: center;
+            color: #333;
+        }
         .result-container {
             background-color: white;
             border-radius: 15px;
             padding: 20px;
-            max-width: 600px;
+            max-width: 800px;
             margin: 20px auto;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
@@ -223,8 +231,8 @@
         margin: 20px auto;
         display: flex;
         justify-content: space-between;
-        max-width: 90%;
-        width: 600px;
+        width: 100%;
+        max-width: 600px;
     ">
         <button onclick="location.href='index.php'" style="
             background-color: #4CAF50;
