@@ -45,7 +45,7 @@
         }
         li {
             margin: 10px 0;
-            font-size: 16px;
+            font-size: 12px;
         }
     </style>
 </head>
@@ -56,16 +56,16 @@
         $results = json_decode($_POST['results'], true);
         
         $animals = [
-            '🐰' => ['토끼', '귀여운', '민첩한'],
-            '🐻' => ['곰', '든든한', '포근한'],
-            '🦊' => ['여우', '영리한', '매력적인'],
-            '🐨' => ['코알라', '느긋한', '평화로운'],
-            '🦁' => ['사자', '당당한', '카리스마 있는'],
-            '🐼' => ['팬더', '독특한', '사랑스러운'],
-            '🐯' => ['호랑이', '용감한', '강인한'],
-            '🦄' => ['유니콘', '환상적인', '특별한'],
-            '🐘' => ['코끼리', '지혜로운', '온화한'],
-            '🦉' => ['부엉이', '지적인', '신중한']
+            '🐰' => ['토끼', '귀엽고', '민첩한'],
+            '🐻' => ['곰', '든든하고', '포근한'],
+            '🦊' => ['여우', '영리하고', '매력적인'],
+            '🐨' => ['코알라', '느긋하고', '평화로운'],
+            '🦁' => ['사자', '당당하고', '카리스마 있는'],
+            '🐼' => ['팬더', '독특하고', '사랑스러운'],
+            '🐯' => ['호랑이', '용감하고', '강인한'],
+            '🦄' => ['유니콘', '환상적이고', '특별한'],
+            '🐘' => ['코끼리', '지혜롭고', '온화한'],
+            '🦉' => ['부엉이', '지적이고', '신중한']
         ];
 
         $residences = [
@@ -87,7 +87,8 @@
             '거대 햄스터 쳇바퀴',
             '슈퍼마리오의 파이프 속',
             '포켓몬 몬스터볼 안',
-            '스폰지밥의 파인애플 집'
+            '스폰지밥의 파인애플 집',
+            '어제 배송온 택배 박스'
         ];
 
         $traits = [];
@@ -99,74 +100,74 @@
         // 질문별 점수 계산
         if ($results[1] == "A") {
             $scores['조용'] += 3; $scores['안정적'] += 2;
-            $traits[] = "조용한 환경을 선호하는";
+            $traits[] = "조용한 환경을 선호하며";
         } else {
             $scores['모험적'] += 3; $scores['활발'] += 2;
-            $traits[] = "활기찬 도시 생활을 즐기는";
+            $traits[] = "활기찬 도시 생활을 즐기며";
         }
 
         if ($results[2] == "A") {
             $scores['창의적'] += 3; $scores['사교적'] += 2;
-            $traits[] = "엔터테인먼트를 즐기는";
+            $traits[] = "엔터테인먼트를 즐기고";
         } else {
             $scores['실용적'] += 3; $scores['독립적'] += 2;
-            $traits[] = "안전을 중시하는";
+            $traits[] = "안전을 중시하고";
         }
 
         if ($results[3] == "A") {
             $scores['사교적'] += 3; $scores['활발'] += 2;
-            $traits[] = "사교적이고 외향적인";
+            $traits[] = "사교적이고 외향적이며";
         } else {
             $scores['조용'] += 3; $scores['독립적'] += 2;
-            $traits[] = "프라이버시를 중시하는";
+            $traits[] = "프라이버시를 중시하며";
         }
 
         if ($results[4] == "A") {
             $scores['사교적'] += 3; $scores['활발'] += 2;
-            $traits[] = "파티를 즐기는";
+            $traits[] = "파티를 즐기기도하고";
         } else {
             $scores['조용'] += 3; $scores['실용적'] += 2;
-            $traits[] = "평화로운 환경을 선호하는";
+            $traits[] = "평화로운 환경을 선호하고";
         }
 
         if ($results[5] == "A") {
             $scores['사교적'] += 2; $scores['창의적'] += 3;
-            $traits[] = "야외 활동을 즐기는";
+            $traits[] = "야외 활동을 즐기기도 하며";
         } else {
             $scores['조용'] += 2; $scores['독립적'] += 3;
-            $traits[] = "실내 활동을 선호하는";
+            $traits[] = "실내 활동을 선호하기도 하며";
         }
 
         if ($results[6] == "A") {
             $scores['모험적'] += 3; $scores['창의적'] += 2;
-            $traits[] = "호기심 많은";
+            $traits[] = "호기심 많고";
         } else {
             $scores['안정적'] += 3; $scores['조용'] += 2;
-            $traits[] = "안전을 중시하는";
+            $traits[] = "안전을 중시하고";
         }
 
         if ($results[7] == "A") {
             $scores['사교적'] += 3; $scores['활발'] += 2;
-            $traits[] = "이웃과 소통하는 것을 좋아하는";
+            $traits[] = "이웃과 소통하는 것을 좋아하며";
         } else {
             $scores['독립적'] += 3; $scores['실용적'] += 2;
-            $traits[] = "자립심이 강한";
+            $traits[] = "자립심이 강하고";
         }
 
         if ($results[8] == "A") {
             $scores['사교적'] += 2; $scores['활발'] += 3;
-            $traits[] = "반려동물을 사랑하는";
+            $traits[] = "반려동물을 사랑하고";
         } else {
             $scores['독립적'] += 2; $scores['창의적'] += 3;
-            $traits[] = "독특한 취미를 가진";
+            $traits[] = "독특한 취미를 가지고";
         }
 
         if ($results[9] == "A") {
             $scores['사교적'] += 3; $scores['창의적'] += 2;
-            $traits[] = "새로운 사람들과 어울리기를 좋아하는";
+            $traits[] = "새로운 사람들과 어울리기를 좋아하고";
         } else {
             $scores['독립적'] += 3; $scores['조용'] += 2;
-            $traits[] = "신중하고 조심스러운";
+            $traits[] = "신중하고 조심스럽고";
         }
 
         if ($results[10] == "A") {
@@ -200,11 +201,11 @@
 
         $animalName = $animals[$selectedAnimal][0];
         $animalTraits = array_slice($animals[$selectedAnimal], 1);
-        $description = implode(", ", $traits) . " " . $animalName;
+        $description = implode(", ", $traits) . " ";
         ?>
-        <div id="character"><?php echo $selectedAnimal; ?></div>
         <div id="description">
-        <p style="font-size: 21px; color: #ff6b6b; background-color: #fff0f0; padding: 10px; border-radius: 10px;">당신의 아파트 동물 캐릭터는 <strong style="color: #4a69bd;"><?php echo $animalName; ?></strong>입니다!</p>
+            <p style="font-size: 21px; color: #ff6b6b; background-color: #fff0f0; padding: 10px; border-radius: 10px;">당신의 아파트 동물 캐릭터는 <br><strong style="color: #4a69bd;"><?php echo $animalName; ?></strong></p>
+            <div id="character"><?php echo $selectedAnimal; ?></div>
             <p>
                 <?php
                 $traits = explode(", ", htmlspecialchars($description));
@@ -214,8 +215,8 @@
                 ?>
                 특성을 가진 아파트 주민이군요!
             </p>
-            <p>당신은 <?php echo implode(", 그리고 ", $animalTraits); ?> 성격을 가지고 있습니다.</p>
-            <p style="font-size: 24px; color: #ff8080; background-color: #fff0f0; padding: 10px; border-radius: 10px;">당신에게 어울리는 주거지는 <strong style="color: #4a69bd;"><?php echo $selectedResidence; ?></strong>입니다!</p>
+            <p>당신은 <?php echo implode(", ", $animalTraits); ?> 성격을 가지고 있습니다.</p>
+            <p style="font-size: 24px; color: #ff8080; background-color: #fff0f0; padding: 10px; border-radius: 10px;"><?php echo $animalName; ?>같은 당신에게 어울리는 주거지는 <br><strong style="color: #4a69bd;"><?php echo $selectedResidence; ?></strong></p>
         </div>
         
         <h2>🌟 당신의 주거 스타일 🌟</h2>
@@ -232,7 +233,7 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-        max-width: 600px;
+        max-width: 800px;
     ">
         <button onclick="location.href='index.php'" style="
             background-color: #4CAF50;
@@ -242,10 +243,10 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
             border-radius: 12px;
-            width: 48%; /* 버튼 너비를 컨테이너의 48%로 설정 */
+            width: 48%;
         ">🔄 테스트 다시하기</button>
         
         <button onclick="shareUrl()" style="
@@ -256,10 +257,10 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
             border-radius: 12px;
-            width: 48%; /* 버튼 너비를 컨테이너의 48%로 설정 */
+            width: 48%;
         ">🔗 테스트 공유하기</button>
     </div>
 
