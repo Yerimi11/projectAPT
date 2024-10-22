@@ -74,7 +74,7 @@
                     <button type="button" onclick="selectAnswer(5, 'B')">지하 와인 셀러와 시음실</button>
                 </div>
                 <div class="question" data-question="6">
-                    <h2>6. 아파트에 귀신 산다는 소문이 돈다면?</h2>
+                    <h2>6. 아파트에 귀신이 산다는 소문이 돈다면?</h2>
                     <button type="button" onclick="selectAnswer(6, 'A')">흥미진진! 직접 탐사 나간다</button>
                     <button type="button" onclick="selectAnswer(6, 'B')">겁나서 이사 갈 준비를 한다</button>
                 </div>
