@@ -149,5 +149,34 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.question[data-question="1"]').classList.add('active');
 });
 </script>
+<div style="padding-top: 3px;">
+<!-- 하단 광고 배너 -->
+<!-- 카카오 애드핏 모바일 -->
+<ins class="kakao_ad_area" style="display:none;"
+data-ad-unit = "DAN-8Lt6yjihOTdqIay1"
+data-ad-width = "320"
+data-ad-height = "50"></ins>
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+</div>
+
+<!-- 카카오 애드핏 PC -->
+<ins class="kakao_ad_area" style="display:none;"
+data-ad-unit = "DAN-90xLqmF4z7W7of9j"
+data-ad-width = "728"
+data-ad-height = "90"></ins>
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+
+<div id="bottom-ad-banner">
+<!-- 구글 애드센스 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-2599437760542212"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+<script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
 </body>
 </html>
