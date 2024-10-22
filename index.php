@@ -19,7 +19,7 @@
         }
         h1 {
             color: #ff8080;
-            font-size: 28px;
+            font-size: 24px;
         }
         p {
             font-size: 18px;
@@ -44,6 +44,8 @@
         <p>
             당신의 거주 스타일은 어떤가요? 🤔<br>
             재미있는 질문들에 답하고 나만의 캐릭터와 어울리는 주거지를 알아보세요! 🐰🐻🦊
+            <br>
+            <br>
         </p>
         <a href="test.php" class="start-button">테스트 시작하기 🎉</a>
     </div>

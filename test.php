@@ -16,7 +16,7 @@
         }
         h1 {
             color: #ff8080;
-            font-size: 28px;
+            font-size: 24px;
         }
         .question {
             display: none;
@@ -27,7 +27,7 @@
         }
         h2 {
             color: #5d5d5d;
-            font-size: 20px;
+            font-size: 18px;
         }
         button:hover {
             background-color: #ff8080;
@@ -74,8 +74,8 @@
                     <button type="button" onclick="selectAnswer(5, 'B')">지하 와인 셀러와 시음실</button>
                 </div>
                 <div class="question" data-question="6">
-                    <h2>6. 아파트에 유령이 산다는 소문이 돈다면?</h2>
-                    <button type="button" onclick="selectAnswer(6, 'A')">흥미진진! 직접 유령 탐사 나간다</button>
+                    <h2>6. 아파트에 귀신 산다는 소문이 돈다면?</h2>
+                    <button type="button" onclick="selectAnswer(6, 'A')">흥미진진! 직접 탐사 나간다</button>
                     <button type="button" onclick="selectAnswer(6, 'B')">겁나서 이사 갈 준비를 한다</button>
                 </div>
                 <div class="question" data-question="7">
@@ -140,11 +140,11 @@ data-ad-height = "50"></ins>
 </div>
 
 <!-- 카카오 애드핏 PC -->
-<ins class="kakao_ad_area" style="display:none;"
+<!-- <ins class="kakao_ad_area" style="display:none;"
 data-ad-unit = "DAN-90xLqmF4z7W7of9j"
 data-ad-width = "728"
 data-ad-height = "90"></ins>
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> -->
 
 <div id="bottom-ad-banner">
 <!-- 구글 애드센스 -->
