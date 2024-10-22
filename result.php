@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>당신의 거주 캐릭터와 어울리는 주거지</title>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: 'Jua', sans-serif;
-            text-align: center;
-            background-color: #f9f3f3;
-            color: #333;
-        }
         .result-container {
             background-color: white;
             border-radius: 15px;
@@ -201,7 +196,7 @@
         ?>
         <div id="character"><?php echo $selectedAnimal; ?></div>
         <div id="description">
-        <p style="font-size: 21px;">당신의 아파트 동물 캐릭터는 <strong><?php echo $animalName; ?></strong>입니다!</p>
+        <p style="font-size: 21px; color: #ff6b6b; background-color: #fff0f0; padding: 10px; border-radius: 10px;">당신의 아파트 동물 캐릭터는 <strong style="color: #4a69bd;"><?php echo $animalName; ?></strong>입니다!</p>
             <p>
                 <?php
                 $traits = explode(", ", htmlspecialchars($description));
@@ -212,7 +207,7 @@
                 특성을 가진 아파트 주민이군요!
             </p>
             <p>당신은 <?php echo implode(", 그리고 ", $animalTraits); ?> 성격을 가지고 있습니다.</p>
-            <p style="font-size: 24px;">당신에게 어울리는 주거지는 <strong><?php echo $selectedResidence; ?></strong>입니다!</p>
+            <p style="font-size: 24px; color: #ff8080; background-color: #fff0f0; padding: 10px; border-radius: 10px;">당신에게 어울리는 주거지는 <strong style="color: #4a69bd;"><?php echo $selectedResidence; ?></strong>입니다!</p>
         </div>
         
         <h2>🌟 당신의 주거 스타일 🌟</h2>
@@ -222,6 +217,58 @@
             <?php endforeach; ?>
         </ul>
     </div>
+
+    <!-- 테스트 다시하기 버튼과 공유하기 버튼 추가 -->
+    <div id="button-container" style="
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-between;
+        max-width: 90%;
+        width: 600px;
+    ">
+        <button onclick="location.href='index.php'" style="
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 12px;
+            width: 48%; /* 버튼 너비를 컨테이너의 48%로 설정 */
+        ">🔄 테스트 다시하기</button>
+        
+        <button onclick="shareUrl()" style="
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 12px;
+            width: 48%; /* 버튼 너비를 컨테이너의 48%로 설정 */
+        ">🔗 테스트 공유하기</button>
+    </div>
+
+    <script>
+    function shareUrl() {
+        var dummy = document.createElement('input'),
+        text = window.location.origin + '/index.php';
+
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+
+        alert('테스트 URL이 클립보드에 복사되었습니다!');
+    }
+    </script>
 
     <!-- 광고 배너를 추가할 수 있는 공간 -->
     <div id="ad-banner">
@@ -245,6 +292,7 @@
 <ins class="kakao_ad_area" style="display:none;"
 data-ad-unit = "DAN-8Lt6yjihOTdqIay1"
 data-ad-width = "320"
+data-ad-format="auto"
 data-ad-height = "50"></ins>
 <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 </div>

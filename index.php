@@ -7,13 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <!-- 구글 애드센스 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2599437760542212" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: 'Jua', sans-serif;
-            background-color: #f9f3f3;
-            text-align: center;
-            color: #333;
-        }
         .container {
             max-width: 600px;
             margin: 20px auto;
@@ -30,18 +25,6 @@
             font-size: 18px;
             line-height: 1.6;
         }
-        .start-button {
-            background-color: #ffa8a8;
-            border: none;
-            color: white;
-            padding: 15px 30px;
-            margin: 20px 0;
-            border-radius: 25px;
-            font-size: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-family: 'Jua', sans-serif;
-        }
         .start-button:hover {
             background-color: #ff8080;
         }
@@ -52,10 +35,11 @@
             border-radius: 10px;
         }
     </style>
+    
 </head>
 <body>
     <div class="container">
-        <h1>🏠 나만의 아파트 테스트 🏠</h1>
+        <h1>🏠 나만의 아파트 성격 테스트 🏠</h1>
         <img src="./image.jpeg" alt="Rosé & Bruno Mars" class="main-image">
         <p>
             당신의 거주 스타일은 어떤가요? 🤔<br>

@@ -4,14 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나만의 아파트 성격 테스트</title>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: 'Jua', sans-serif;
-            background-color: #f9f3f3;
-            text-align: center;
-            color: #333;
-        }
         .container {
             max-width: 600px;
             margin: 0 auto;
@@ -34,20 +28,6 @@
         h2 {
             color: #5d5d5d;
             font-size: 20px;
-        }
-        button {
-            background-color: #ffa8a8;
-            border: none;
-            color: white;
-            padding: 15px 30px;
-            margin: 10px auto;
-            border-radius: 25px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-family: 'Jua', sans-serif;
-            display: block;
-            width: 80%;
         }
         button:hover {
             background-color: #ff8080;
