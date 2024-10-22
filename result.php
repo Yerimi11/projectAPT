@@ -234,7 +234,7 @@
         flex-direction: column;
         align-items: center;
         width: 100%;
-        max-width: 500px;
+        max-width: 800px;
     ">
         <button onclick="shareUrl()" style="
             background-color: #99CCFF;
@@ -244,7 +244,7 @@
             text-align: center;
             text-decoration: none;
             display: block;
-            font-size: 20px;
+            font-size: 25px;
             cursor: pointer;
             border-radius: 25px;
             width: 100%;
@@ -258,8 +258,7 @@
             text-align: center;
             text-decoration: none;
             display: block;
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 25px;
             cursor: pointer;
             border-radius: 25px;
             width: 100%;
