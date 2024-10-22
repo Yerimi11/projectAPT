@@ -235,7 +235,7 @@
         width: 100%;
         max-width: 800px;
     ">
-        <button onclick="location.href='index.php'" style="
+        <button onclick="location.href='index'" style="
             background-color: #4CAF50;
             border: none;
             color: white;

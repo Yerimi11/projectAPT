@@ -46,7 +46,7 @@
     <div class="container">
         <h1>🏠 나만의 아파트 성격 테스트 🏠</h1>
         
-        <form action="result.php" method="post">
+        <form action="result" method="post">
             <div id="question-container">
                 <div class="question" data-question="1">
                     <h2>1. 갑자기 복권에 당첨되어 아파트를 살 수 있다면?</h2>

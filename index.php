@@ -47,7 +47,7 @@
             <br>
             <br>
         </p>
-        <a href="test.php" class="start-button">테스트 시작하기 🎉</a>
+        <a href="test" class="start-button">테스트 시작하기 🎉</a>
     </div>
     
 
