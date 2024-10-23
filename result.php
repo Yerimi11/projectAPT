@@ -82,9 +82,22 @@
             margin-bottom: 0;
         }
         
+        #button-container button:nth-child(1) {
+            background-color: #FF9999; /* 연한 분홍색 */
+        }
+
+        #button-container button:nth-child(2) {
+            background-color: #FFCC99; /* 연한 주황색 */
+        }
+
+        #button-container button:nth-child(3) {
+            background-color: #99CCFF; /* 연한 하늘색 */
+        }
+
         #button-container button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0.8;
         }
         
         @media (max-width: 480px) {
@@ -98,6 +111,7 @@
             }
         }
     </style>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="result-container">
@@ -269,7 +283,7 @@
             <p style="font-size: 24px; color: #ff8080; background-color: #fff0f0; padding: 10px; border-radius: 10px;"><?php echo $animalName; ?>같은 당신에게 어울리는 주거지는 <br><strong style="color: #4a69bd;"><?php echo $selectedResidence; ?></strong></p>
         </div>
         
-        <h2>🌟 당신의 주거 스타일 🌟</h2>
+        <h2>���� 당신의 주거 스타일 🌟</h2>
         <ul>
             <?php foreach ($scores as $trait => $score): ?>
                 <li><?php echo $trait; ?>: <?php echo str_repeat('⭐', $score); ?></li>
@@ -277,16 +291,26 @@
         </ul>
     </div>
 
+    <!-- 카카오 애드핏 모바일 -->
+    <ins class="kakao_ad_area" style="display:none;"
+    data-ad-unit = "DAN-8Lt6yjihOTdqIay1"
+    data-ad-width = "320"
+    data-ad-format="auto"
+    data-ad-height = "50"></ins>
+    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+    </div>
+    
     <!-- 테스트 다시하기 버튼과 공유하기 버튼 추가 -->
     <div id="button-container">
+        <button onclick="captureAndShare()">📸 결과 공유하기</button>
+        <button onclick="shareUrl()">🔗 링크 공유하기</button>
         <button onclick="location.href='index'">🔄 테스트 다시하기</button>
-        <button onclick="shareUrl()">🔗 테스트 공유하기</button>
     </div>
 
     <script>
     function shareUrl() {
         var dummy = document.createElement('input'),
-        text = window.location.origin + '/index.php';
+        text = window.location.origin + '/index';
 
         document.body.appendChild(dummy);
         dummy.value = text;
@@ -294,7 +318,20 @@
         document.execCommand('copy');
         document.body.removeChild(dummy);
 
-        alert('테스트 URL이 클립보드에 복사되었습니다!');
+        alert('URL이 클립보드에 복사되었습니다!');
+    }
+
+    function captureAndShare() {
+        html2canvas(document.body).then(function(canvas) {
+            // 캔버스를 이미지로 변환
+            var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+            
+            // 이미지 다운로드
+            var link = document.createElement('a');
+            link.download = '아파트_테스트_결과.png';
+            link.href = image;
+            link.click();
+        });
     }
     </script>
 
@@ -315,15 +352,9 @@
 
     
 <div style="padding-top: 3px;">
+
+
 <!-- 하단 광고 배너 -->
-<!-- 카카오 애드핏 모바일 -->
-<ins class="kakao_ad_area" style="display:none;"
-data-ad-unit = "DAN-8Lt6yjihOTdqIay1"
-data-ad-width = "320"
-data-ad-format="auto"
-data-ad-height = "50"></ins>
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-</div>
 
 <!-- 카카오 애드핏 PC -->
 <!-- <ins class="kakao_ad_area" style="display:none;"
