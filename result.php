@@ -140,13 +140,13 @@
             '제주도 독채 펜션',
             '한적한 시골 농가',
             '도심 속 빌라',
-            '산장',
+            '산장',                  // 7 X
             '해변가 별장',
-            '길바닥',
+            '길바닥',                 // 9 X
             '공항 벤치 위',
             '숲속 글램핑장',
-            '지하철역 화장실',
-            '동물원 원숭이 우리',
+            '지하철역 화장실',          // 12 X
+            '구름 위의 솜사탕 펜트하우스', // 13 X
             '편의점 냉장고 안',
             '거대 햄스터 쳇바퀴',
             '슈퍼마리오의 파이프 속',
@@ -242,56 +242,90 @@
             $traits[] = "변화를 선호하는";
         }
 
-        // 최종 동물 선택
-        $maxScore = max($scores);
-        $dominantTraits = array_keys($scores, $maxScore);
-        $dominantTrait = $dominantTraits[array_rand($dominantTraits)];
+        arsort($scores);
+        $topTraits = array_slice(array_keys($scores), 0, 2);
 
-        $compatibleAnimals = [];
-        foreach ($animals as $emoji => $animalTraits) {
-            if (in_array($dominantTrait, $animalTraits)) {
-                $compatibleAnimals[$emoji] = $animalTraits;
-            }
-        }
+        // 특성 조합에 따른 동물과 거주지 매핑
+        $traitCombinations = [
+            '활발_사교적'  => ['animal' => '🐰', 'residence' => $residences[12]],   // 토끼, 귀엽고, 민첩한 / 지하철역 화장실
+            '활발_모험적'  => ['animal' => '🐯', 'residence' => $residences[9]],   // 호랑이, 용감하고, 강인한 / 길바닥
+            '조용_안정적'  => ['animal' => '🐨', 'residence' => $residences[15]],  // 코알라, 느긋하고, 평화로운 / 거대 햄스터 쳇바퀴
+            '조용_독립적'  => ['animal' => '🦉', 'residence' => $residences[5]],   // 부엉이, 지적이고, 신중한 / 한적한 시골 농가
+            '사교적_창의적' => ['animal' => '🦄', 'residence' => $residences[17]],  // 유니콘, 환상적이고, 특별한 / 포켓몬 몬스터볼 안
+            '독립적_실용적' => ['animal' => '🦊', 'residence' => $residences[14]],  // 편의점 냉장고 안
+            '실용적_안정적' => ['animal' => '🐘', 'residence' => $residences[3]],   // 강남 오피스텔
+            '창의적_모험적' => ['animal' => '🦁', 'residence' => $residences[18]],  // 스폰지밥의 파인애플 집
+            '모험적_사교적' => ['animal' => '🐼', 'residence' => $residences[1]],   // 팬더, 독특하고, 사랑스러운, 한강뷰 펜트하우스
+            '안정적_창의적' => ['animal' => '🐻', 'residence' => $residences[6]],   // 도심 속 빌라
+            '안정적_사교적' => ['animal' => '🐶', 'residence' => $residences[4]],   // 제주도 독채 펜션
+            '독립적_창의적' => ['animal' => '🦄', 'residence' => $residences[19]],  // 어제 배송온 택배 박스
+            '모험적_실용적' => ['animal' => '🦅', 'residence' => $residences[11]],  // 지하철역 화장실
+            '사교적_실용적' => ['animal' => '🐬', 'residence' => $residences[8]],   // 해변가 별장
+            '조용_창의적'  => ['animal' => '🦉', 'residence' => $residences[2]],    // 북촌 한옥
+            '활발_독립적'  => ['animal' => '🐒', 'residence' => $residences[0]],    // 트리마제 아파트
+            '안정적_모험적' => ['animal' => '🐢', 'residence' => $residences[16]],  // 슈퍼마리오의 파이프 속
+            '실용적_창의적' => ['animal' => '🦊', 'residence' => $residences[10]]   // 공항 벤치 위
+        ];
 
-        if (empty($compatibleAnimals)) {
-            $selectedAnimal = array_rand($animals);
+
+
+        // 조합에 해당하는 동물과 거주지 선택
+        if (isset($traitCombinations[$traitKey])) {
+            $selectedAnimal = $traitCombinations[$traitKey]['animal'];
+            $selectedResidence = $traitCombinations[$traitKey]['residence'];
         } else {
-            $selectedAnimal = array_rand($compatibleAnimals);
+            // 매칭되는 조합이 없을 경우 랜덤 선택
+            $randomCombination = array_rand($traitCombinations);
+            $selectedAnimal = $traitCombinations[$randomCombination]['animal'];
+            $selectedResidence = $traitCombinations[$randomCombination]['residence'];
         }
-        // 주거지 선택
-        $residenceIndex = array_rand($residences);
-        $selectedResidence = $residences[$residenceIndex];
 
-        $animalName = $animals[$selectedAnimal][0];
-        $animalTraits = array_slice($animals[$selectedAnimal], 1);
-        $description = implode(", ", $traits) . " ";
+        // 선택된 동물에 대한 정보 가져오기
+        $animalInfo = $animals[$selectedAnimal];
+        $animalName = $animalInfo[0];
+        $animalTraits = array_slice($animalInfo, 1);
+
+        // $topTraits를 동물의 특성으로 설정
+        $topTraits = $animalTraits;
+
+        // $description 생성 부분 수정
+        $description = implode(" ", $traits);
+
+        // 결과 설명 생성
+        $traitKey = $selectedAnimal; // 동물 키를 그대로 사용
+        $resultDescription = "당신은 " . implode(", ", $topTraits) . " 성향을 가지고 있습니다. ";
+
         ?>
         <div id="description">
             <p style="font-size: 21px; color: #ff6b6b; background-color: #fff0f0; padding: 10px; border-radius: 10px;">당신의 아파트 동물 캐릭터는 <br><strong style="color: #4a69bd;"><?php echo $animalName; ?></strong></p>
             <div id="character"><?php echo $selectedAnimal; ?></div>
-            <p>
+            
+            <p style="font-size: 18px; color: #333; padding: 10px; border-radius: 10px; margin-top: 20px;">
                 <?php
-                $traits = explode(", ", htmlspecialchars($description));
                 foreach ($traits as $trait) {
                     echo $trait . "<br>";
                 }
                 ?>
-                특성을 가진 아파트 주민이군요!
+                특성을 가진 주민이군요!
+                <p><?php echo $resultDescription; ?></p>
             </p>
-            <p>당신은 <?php echo implode(", ", $animalTraits); ?> 성격을 가지고 있습니다.</p>
             <p style="font-size: 24px; color: #ff8080; background-color: #fff0f0; padding: 10px; border-radius: 10px;"><?php echo $animalName; ?>같은 당신에게 어울리는 주거지는 <br><strong style="color: #4a69bd;"><?php echo $selectedResidence; ?></strong></p>
         </div>
         
         <h2>🌟 당신의 주거 스타일 🌟</h2>
         <ul>
             <?php foreach ($scores as $trait => $score): ?>
-                <li><?php echo $trait; ?>: <?php echo str_repeat('⭐', $score); ?></li>
+                <li><?php echo $trait; ?>: <?php echo $score > 0 ? str_repeat('⭐', $score) : '-'; ?></li>
             <?php endforeach; ?>
         </ul>
+        
     </div>
     
-    <!-- 테스트 다시하기 버튼과 공유하기 버튼 추가 -->
+
+
+
+
+<!-- 테스트 다시하기 버튼과 공유하기 버튼 추가 -->
     <div id="button-container">
         <button onclick="captureAndShare()">📸 결과 이미지 저장하기</button>
         <button onclick="shareUrl()">🔗 링크 공유하기</button>
