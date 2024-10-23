@@ -39,7 +39,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>🏠 나만의 아파트 성격 테스트 </h1>
+        <h1> 나만의 아파트 성격 테스트 <br> 🏠 </h1>
         <img src="./image.jpeg" alt="Rosé & Bruno Mars" class="main-image">
         <p>
             당신의 거주 스타일은 어떤가요? 🤔<br>
