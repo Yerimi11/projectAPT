@@ -2,6 +2,13 @@
 session_start();
 // 테스트를 다시 시작할 때 이전 결과를 초기화
 unset($_SESSION['result']);
+
+// Redis 연결
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
+
+// 테스트 완료 카운트 가져오기
+$testCompletedCount = $redis->get('test_completed_count') ?: 0;
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -53,6 +60,9 @@ unset($_SESSION['result']);
             <br>
         </p>
         <a href="test" class="start-button">테스트 시작하기 🎉</a>
+        
+        <!-- 테스트 완료 카운트 표시 -->
+        <p>지금까지 <?php echo number_format($testCompletedCount); ?>명이 테스트를 완료했습니다!</p>
     </div>
     
 

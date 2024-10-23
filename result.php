@@ -119,6 +119,13 @@
         <?php
         session_start();
 
+        // Redis 연결
+        $redis = new Redis();
+        $redis->connect('127.0.0.1', 6379);
+
+        // 테스트 완료 카운터 증가
+        $redis->incr('test_completed_count');
+
         // 동물과 거주지 정의
         $animals = [
             '🐰' => ['토끼', '귀엽고', '민첩한'],
