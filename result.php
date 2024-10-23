@@ -360,25 +360,9 @@
     }
     </script>
 
-<!-- 하단 광고 배너 -->
-
-<div id="ad-banner">
-    <!-- 예: Google AdSense 또는 다른 광고 네트워크의 스크립트 -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
-            data-ad-slot="xxxxxxxxxx"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
-    <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
-
-    
 <div style="padding-top: 3px;">
-
+    
+<!-- 하단 광고 배너 -->
 <!-- 카카오 애드핏 모바일 -->
 <ins class="kakao_ad_area" style="display:none;"
 data-ad-unit = "DAN-8Lt6yjihOTdqIay1"
