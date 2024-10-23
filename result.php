@@ -5,6 +5,7 @@
     <title>당신의 거주 캐릭터와 어울리는 주거지</title>
     <!-- <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             font-family: 'CookieRun-Regular', sans-serif;
@@ -46,6 +47,55 @@
         li {
             margin: 10px 0;
             font-size: 12px;
+        }
+        #button-container {
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        
+        #button-container button {
+            background-color: #FF9999;
+            border: none;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 12px;
+            width: 100%;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        #button-container button:last-child {
+            background-color: #99CCFF;
+            margin-bottom: 0;
+        }
+        
+        #button-container button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        @media (max-width: 480px) {
+            #button-container {
+                padding: 0 10px;
+            }
+            
+            #button-container button {
+                font-size: 16px;
+                padding: 15px 0;
+            }
         }
     </style>
 </head>
@@ -228,44 +278,9 @@
     </div>
 
     <!-- 테스트 다시하기 버튼과 공유하기 버튼 추가 -->
-    <div id="button-container" style="
-        margin: 20px auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        max-width: 800px;
-    ">
-        <button onclick="shareUrl()" style="
-            background-color: #99CCFF;
-            border: none;
-            color: #ffffff;
-            padding: 20px 0;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-            font-size: 25px;
-            cursor: pointer;
-            border-radius: 25px;
-            width: 100%;
-        ">🔗 테스트 공유하기</button>
-
-        <button onclick="location.href='index'" style="
-            background-color: #FF9999;
-            border: none;
-            color: #ffffff;
-            padding: 20px 0;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-            font-size: 25px;
-            cursor: pointer;
-            border-radius: 25px;
-            width: 100%;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        ">🔄 테스트 다시하기</button>
-
+    <div id="button-container">
+        <button onclick="location.href='index'">🔄 테스트 다시하기</button>
+        <button onclick="shareUrl()">🔗 테스트 공유하기</button>
     </div>
 
     <script>
