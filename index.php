@@ -1,3 +1,8 @@
+<?php
+session_start();
+// 테스트를 다시 시작할 때 이전 결과를 초기화
+unset($_SESSION['result']);
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>

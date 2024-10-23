@@ -161,159 +161,156 @@
             '어제 배송온 택배 박스'
         ];
 
-        // 결과가 이미 세션에 저장되어 있는지 확인
-        if (!isset($_SESSION['result'])) {
-            // POST 데이터가 있는 경우에만 새로운 결과를 계산
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['results'])) {
-                $results = json_decode($_POST['results'], true);
-                
-                $traits = [];
-                $scores = [
-                    '활발' => 0, '조용' => 0, '사교적' => 0, '독립적' => 0,
-                    '실용적' => 0, '창의적' => 0, '모험적' => 0, '안정적' => 0
-                ];
+        // POST 데이터가 있는 경우에만 새로운 결과를 계산
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['results'])) {
+            $results = json_decode($_POST['results'], true);
+            
+            $traits = [];
+            $scores = [
+                '활발' => 0, '조용' => 0, '사교적' => 0, '독립적' => 0,
+                '실용적' => 0, '창의적' => 0, '모험적' => 0, '안정적' => 0
+            ];
 
-                // 질문별 점수 계산
-                if ($results[1] == "A") {
-                    $scores['조용'] += 3; $scores['안정적'] += 2;
-                    $traits[] = "조용한 환경을 선호하며";
-                } else {
-                    $scores['모험적'] += 3; $scores['활발'] += 2;
-                    $traits[] = "활기찬 도시 생활을 즐기며";
-                }
+            // 질문별 점수 계산
+            if ($results[1] == "A") {
+                $scores['조용'] += 3; $scores['안정적'] += 2;
+                $traits[] = "조용한 환경을 선호하며";
+            } else {
+                $scores['모험적'] += 3; $scores['활발'] += 2;
+                $traits[] = "활기찬 도시 생활을 즐기며";
+            }
 
-                if ($results[2] == "A") {
-                    $scores['창의적'] += 3; $scores['사교적'] += 2;
-                    $traits[] = "엔터테인먼트를 즐기고";
-                } else {
-                    $scores['실용적'] += 3; $scores['독립적'] += 2;
-                    $traits[] = "안전을 중시하고";
-                }
+            if ($results[2] == "A") {
+                $scores['창의적'] += 3; $scores['사교적'] += 2;
+                $traits[] = "엔터테인먼트를 즐기고";
+            } else {
+                $scores['실용적'] += 3; $scores['독립적'] += 2;
+                $traits[] = "안전을 중시하고";
+            }
 
-                if ($results[3] == "A") {
-                    $scores['사교적'] += 3; $scores['활발'] += 2;
-                    $traits[] = "사교적이고 외향적이며";
-                } else {
-                    $scores['조용'] += 3; $scores['독립적'] += 2;
-                    $traits[] = "프라이버시를 중시하며";
-                }
+            if ($results[3] == "A") {
+                $scores['사교적'] += 3; $scores['활발'] += 2;
+                $traits[] = "사교적이고 외향적이며";
+            } else {
+                $scores['조용'] += 3; $scores['독립적'] += 2;
+                $traits[] = "프라이버시를 중시하며";
+            }
 
-                if ($results[4] == "A") {
-                    $scores['사교적'] += 3; $scores['활발'] += 2;
-                    $traits[] = "파티를 즐기기도하고";
-                } else {
-                    $scores['조용'] += 3; $scores['실용적'] += 2;
-                    $traits[] = "평화로운 환경을 선호하고";
-                }
+            if ($results[4] == "A") {
+                $scores['사교적'] += 3; $scores['활발'] += 2;
+                $traits[] = "파티를 즐기기도하고";
+            } else {
+                $scores['조용'] += 3; $scores['실용적'] += 2;
+                $traits[] = "평화로운 환경을 선호하고";
+            }
 
-                if ($results[5] == "A") {
-                    $scores['사교적'] += 2; $scores['창의적'] += 3;
-                    $traits[] = "야외 활동을 즐기기도 하며";
-                } else {
-                    $scores['조용'] += 2; $scores['독립적'] += 3;
-                    $traits[] = "실내 활동을 선호하기도 하며";
-                }
+            if ($results[5] == "A") {
+                $scores['사교적'] += 2; $scores['창의적'] += 3;
+                $traits[] = "야외 활동을 즐기기도 하며";
+            } else {
+                $scores['조용'] += 2; $scores['독립적'] += 3;
+                $traits[] = "실내 활동을 선호하기도 하며";
+            }
 
-                if ($results[6] == "A") {
-                    $scores['모험적'] += 3; $scores['창의적'] += 2;
-                    $traits[] = "호기심 많고";
-                } else {
-                    $scores['안정적'] += 3; $scores['조용'] += 2;
-                    $traits[] = "안전을 중시하고";
-                }
+            if ($results[6] == "A") {
+                $scores['모험적'] += 3; $scores['창의적'] += 2;
+                $traits[] = "호기심 많고";
+            } else {
+                $scores['안정적'] += 3; $scores['조용'] += 2;
+                $traits[] = "안전을 중시하고";
+            }
 
-                if ($results[7] == "A") {
-                    $scores['사교적'] += 3; $scores['활발'] += 2;
-                    $traits[] = "이웃과 소통하는 것을 좋아하며";
-                } else {
-                    $scores['독립적'] += 3; $scores['실용적'] += 2;
-                    $traits[] = "자립심이 강하고";
-                }
+            if ($results[7] == "A") {
+                $scores['사교적'] += 3; $scores['활발'] += 2;
+                $traits[] = "이웃과 소통하는 것을 좋아하며";
+            } else {
+                $scores['독립적'] += 3; $scores['실용적'] += 2;
+                $traits[] = "자립심이 강하고";
+            }
 
-                if ($results[8] == "A") {
-                    $scores['사교적'] += 2; $scores['활발'] += 3;
-                    $traits[] = "반려동물을 사랑하고";
-                } else {
-                    $scores['독립적'] += 2; $scores['창의적'] += 3;
-                    $traits[] = "독특한 취미를 가지고";
-                }
+            if ($results[8] == "A") {
+                $scores['사교적'] += 2; $scores['활발'] += 3;
+                $traits[] = "반려동물을 사랑하고";
+            } else {
+                $scores['독립적'] += 2; $scores['창의적'] += 3;
+                $traits[] = "독특한 취미를 가지고";
+            }
 
-                if ($results[9] == "A") {
-                    $scores['사교적'] += 3; $scores['창의적'] += 2;
-                    $traits[] = "새로운 사람들과 어울리기를 좋아하고";
-                } else {
-                    $scores['독립적'] += 3; $scores['조용'] += 2;
-                    $traits[] = "신중하고 조심스럽고";
-                }
+            if ($results[9] == "A") {
+                $scores['사교적'] += 3; $scores['창의적'] += 2;
+                $traits[] = "새로운 사람들과 어울리기를 좋아하고";
+            } else {
+                $scores['독립적'] += 3; $scores['조용'] += 2;
+                $traits[] = "신중하고 조심스럽고";
+            }
 
-                if ($results[10] == "A") {
-                    $scores['활발'] += 3; $scores['사교적'] += 2;
-                    $traits[] = "적극적이고 주도적인";
-                } else {
-                    $scores['조용'] += 3; $scores['독립적'] += 2;
-                    $traits[] = "변화를 선호하는";
-                }
+            if ($results[10] == "A") {
+                $scores['활발'] += 3; $scores['사교적'] += 2;
+                $traits[] = "적극적이고 주도적인";
+            } else {
+                $scores['조용'] += 3; $scores['독립적'] += 2;
+                $traits[] = "변화를 선호하는";
+            }
 
-                arsort($scores);
-                $topTraits = array_slice(array_keys($scores), 0, 2);
+            arsort($scores);
+            $topTraits = array_slice(array_keys($scores), 0, 2);
 
-                // 특성 조합에 따른 동물과 거주지 매핑
-                $traitCombinations = [
-                    '활발_사교적'  => ['animal' => '🦜', 'residence' => $residences[12]],   // 토끼, 귀엽고, 민첩한 / 지하철역 화장실
-                    '활발_모험적'  => ['animal' => '🐯', 'residence' => $residences[9]],   // 호랑이, 용감하고, 강인한 / 길바닥
-                    '조용_안정적'  => ['animal' => '🐨', 'residence' => $residences[15]],  // 코알라, 느긋하고, 평화로운 / 거대 햄스터 쳇바퀴
-                    '조용_독립적'  => ['animal' => '🦉', 'residence' => $residences[5]],   // 부엉이, 지적이고, 신중한 / 한적한 시골 농가
-                    '사교적_창의적' => ['animal' => '🦄', 'residence' => $residences[17]],  // 유니콘, 환상적이고, 특별한 / 포켓몬 몬스터볼 안
-                    '독립적_실용적' => ['animal' => '🦊', 'residence' => $residences[14]],  // 편의점 냉장고 안
-                    '실용적_안정적' => ['animal' => '🐘', 'residence' => $residences[3]],   // 강남 오피스텔
-                    '창의적_모험적' => ['animal' => '🦁', 'residence' => $residences[18]],  // 스폰지밥의 파인애플 집
-                    '모험적_사교적' => ['animal' => '🐼', 'residence' => $residences[1]],   // 팬더, 독특하고, 사랑스러운, 한강뷰 펜트하우스
-                    '안정적_창의적' => ['animal' => '🐻', 'residence' => $residences[6]],   // 도심 속 빌라
-                    '안정적_사교적' => ['animal' => '🐶', 'residence' => $residences[4]],   // 제주도 독채 펜션
-                    '독립적_창의적' => ['animal' => '🐱', 'residence' => $residences[19]],  // 어제 배송온 택배 박스
-                    '모험적_실용적' => ['animal' => '🦅', 'residence' => $residences[11]],  // 지하철역 화장실
-                    '사교적_실용적' => ['animal' => '🐰', 'residence' => $residences[8]],   // 해변가 별장
-                    '조용_창의적'  => ['animal' => '🦉', 'residence' => $residences[2]],    // 북촌 한옥
-                    '활발_독립적'  => ['animal' => '🐱', 'residence' => $residences[0]],    // 트리마제 아파트
-                    '안정적_모험적' => ['animal' => '🐢', 'residence' => $residences[16]],  // 슈퍼마리오의 파이프 속
-                    '실용적_창의적' => ['animal' => '🦊', 'residence' => $residences[10]]   // 공항 벤치 위
-                ];
+            // 특성 조합에 따른 동물과 거주지 매핑
+            $traitCombinations = [
+                '활발_사교적'  => ['animal' => '🦜', 'residence' => $residences[12]],   // 토끼, 귀엽고, 민첩한 / 지하철역 화장실
+                '활발_모험적'  => ['animal' => '🐯', 'residence' => $residences[9]],   // 호랑이, 용감하고, 강인한 / 길바닥
+                '조용_안정적'  => ['animal' => '🐨', 'residence' => $residences[15]],  // 코알라, 느긋하고, 평화로운 / 거대 햄스터 쳇바퀴
+                '조용_독립적'  => ['animal' => '🦉', 'residence' => $residences[5]],   // 부엉이, 지적이고, 신중한 / 한적한 시골 농가
+                '사교적_창의적' => ['animal' => '🦄', 'residence' => $residences[17]],  // 유니콘, 환상적이고, 특별한 / 포켓몬 몬스터볼 안
+                '독립적_실용적' => ['animal' => '🦊', 'residence' => $residences[14]],  // 편의점 냉장고 안
+                '실용적_안정적' => ['animal' => '🐘', 'residence' => $residences[3]],   // 강남 오피스텔
+                '창의적_모험적' => ['animal' => '🦁', 'residence' => $residences[18]],  // 스폰지밥의 파인애플 집
+                '모험적_사교적' => ['animal' => '🐼', 'residence' => $residences[1]],   // 팬더, 독특하고, 사랑스러운, 한강뷰 펜트하우스
+                '안정적_창의적' => ['animal' => '🐻', 'residence' => $residences[6]],   // 도심 속 빌라
+                '안정적_사교적' => ['animal' => '🐶', 'residence' => $residences[4]],   // 제주도 독채 펜션
+                '독립적_창의적' => ['animal' => '🐱', 'residence' => $residences[19]],  // 어제 배송온 택배 박스
+                '모험적_실용적' => ['animal' => '🦅', 'residence' => $residences[11]],  // 지하철역 화장실
+                '사교적_실용적' => ['animal' => '🐰', 'residence' => $residences[8]],   // 해변가 별장
+                '조용_창의적'  => ['animal' => '🦉', 'residence' => $residences[2]],    // 북촌 한옥
+                '활발_독립적'  => ['animal' => '🐱', 'residence' => $residences[0]],    // 트리마제 아파트
+                '안정적_모험적' => ['animal' => '🐢', 'residence' => $residences[16]],  // 슈퍼마리오의 파이프 속
+                '실용적_창의적' => ['animal' => '🦊', 'residence' => $residences[10]]   // 공항 벤치 위
+            ];
 
-                $traitKey = implode('_', $topTraits);
+            $traitKey = implode('_', $topTraits);
 
-                // 조합에 해당하는 동물과 거주지 선택
-                if (isset($traitCombinations[$traitKey])) {
-                    $selectedAnimal = $traitCombinations[$traitKey]['animal'];
-                    $selectedResidence = $traitCombinations[$traitKey]['residence'];
-                } else {
-                    // 매칭되는 조합이 없을 경우 가장 높은 점수의 특성을 기반으로 선택
-                    $highestTrait = $topTraits[0];
-                    foreach ($traitCombinations as $key => $value) {
-                        if (strpos($key, $highestTrait) !== false) {
-                            $selectedAnimal = $value['animal'];
-                            $selectedResidence = $value['residence'];
-                            break;
-                        }
+            // 조합에 해당하는 동물과 거주지 선택
+            if (isset($traitCombinations[$traitKey])) {
+                $selectedAnimal = $traitCombinations[$traitKey]['animal'];
+                $selectedResidence = $traitCombinations[$traitKey]['residence'];
+            } else {
+                // 매칭되는 조합이 없을 경우 가장 높은 점수의 특성을 기반으로 선택
+                $highestTrait = $topTraits[0];
+                foreach ($traitCombinations as $key => $value) {
+                    if (strpos($key, $highestTrait) !== false) {
+                        $selectedAnimal = $value['animal'];
+                        $selectedResidence = $value['residence'];
+                        break;
                     }
                 }
-
-                // 결과를 세션에 저장
-                $_SESSION['result'] = [
-                    'selectedAnimal' => $selectedAnimal,
-                    'selectedResidence' => $selectedResidence,
-                    'scores' => $scores,
-                    'traits' => $traits,
-                    'topTraits' => $topTraits
-                ];
-            } else {
-                // POST 데이터가 없는 경우 (직접 URL 접근 등) 인덱스 페이지로 리다이렉트
-                header('Location: index');
-                exit;
             }
-        } else {
-            // 세션에서 저장된 결과 불러오기
-            extract($_SESSION['result']);
+
+            // 결과를 세션에 저장
+            $_SESSION['result'] = [
+                'selectedAnimal' => $selectedAnimal,
+                'selectedResidence' => $selectedResidence,
+                'scores' => $scores,
+                'traits' => $traits,
+                'topTraits' => $topTraits
+            ];
+        } elseif (!isset($_SESSION['result'])) {
+            // POST 데이터가 없고 세션에도 결과가 없는 경우 인덱스 페이지로 리다이렉트
+            header('Location: index');
+            exit;
         }
+
+        // 세션에서 저장된 결과 불러오기
+        extract($_SESSION['result']);
 
         // 선택된 동물에 대한 정보 가져오기
         $animalInfo = $animals[$selectedAnimal];
