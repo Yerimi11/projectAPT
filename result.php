@@ -345,7 +345,6 @@
         </ul>
         
     </div>
-    
 
 
 
@@ -378,7 +377,7 @@
             
             // 이미지 다운로드
             var link = document.createElement('a');
-            link.download = '아파트_테스트_결과.png';
+            link.download = 'apt_test_result.png';
             link.href = image;
             link.click();
         });
@@ -406,7 +405,7 @@ data-ad-height = "90"></ins>
 
 <div id="bottom-ad-banner">
 <!-- 구글 애드센스 -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
         style="display:block"
         data-ad-client="ca-pub-2599437760542212"
@@ -414,7 +413,7 @@ data-ad-height = "90"></ins>
         data-full-width-responsive="true"></ins>
 <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+</script> -->
 </div>
 </body>
 </html>
