@@ -62,7 +62,29 @@ $testCompletedCount = $redis->get('test_completed_count') ?: 0;
         <a href="test" class="start-button">테스트 시작하기 🎉</a>
         
         <!-- 테스트 완료 카운트 표시 -->
-        <p>지금까지 <?php echo number_format($testCompletedCount); ?>명이 테스트를 완료했습니다!</p>
+        <div class="completion-count">
+            <p>지금까지 <span class="count"><?php echo number_format($testCompletedCount); ?></span>명이<br>테스트를 완료했습니다!</p>
+        </div>
+        <style>
+            .completion-count {
+                background-color: #f8f8f8;
+                color: #333;
+                padding: 15px;
+                border-radius: 5px;
+                margin-top: 20px;
+                border: 1px solid #e0e0e0;
+            }
+            .completion-count p {
+                margin: 0;
+                font-size: 16px;
+                line-height: 1.4;
+            }
+            .completion-count .count {
+                font-size: 22px;
+                font-weight: bold;
+                color: #ff8080;
+            }
+        </style>
     </div>
     
 
