@@ -113,7 +113,6 @@ const answers = {};
 
 function selectAnswer(questionNumber, answer) {
     answers[questionNumber] = answer;
-    console.log(answers);
     document.getElementById('results').value = JSON.stringify(answers);
 
     if (questionNumber < totalQuestions) {
