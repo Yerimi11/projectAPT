@@ -283,26 +283,17 @@
             <p style="font-size: 24px; color: #ff8080; background-color: #fff0f0; padding: 10px; border-radius: 10px;"><?php echo $animalName; ?>같은 당신에게 어울리는 주거지는 <br><strong style="color: #4a69bd;"><?php echo $selectedResidence; ?></strong></p>
         </div>
         
-        <h2>���� 당신의 주거 스타일 🌟</h2>
+        <h2>🌟 당신의 주거 스타일 🌟</h2>
         <ul>
             <?php foreach ($scores as $trait => $score): ?>
                 <li><?php echo $trait; ?>: <?php echo str_repeat('⭐', $score); ?></li>
             <?php endforeach; ?>
         </ul>
     </div>
-
-    <!-- 카카오 애드핏 모바일 -->
-    <ins class="kakao_ad_area" style="display:none;"
-    data-ad-unit = "DAN-8Lt6yjihOTdqIay1"
-    data-ad-width = "320"
-    data-ad-format="auto"
-    data-ad-height = "50"></ins>
-    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-    </div>
     
     <!-- 테스트 다시하기 버튼과 공유하기 버튼 추가 -->
     <div id="button-container">
-        <button onclick="captureAndShare()">📸 결과 공유하기</button>
+        <button onclick="captureAndShare()">📸 결과 이미지 저장하기</button>
         <button onclick="shareUrl()">🔗 링크 공유하기</button>
         <button onclick="location.href='index'">🔄 테스트 다시하기</button>
     </div>
@@ -335,26 +326,33 @@
     }
     </script>
 
-    <!-- 광고 배너를 추가할 수 있는 공간 -->
-    <div id="ad-banner">
-        <!-- 예: Google AdSense 또는 다른 광고 네트워크의 스크립트 -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
-             data-ad-slot="xxxxxxxxxx"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+<!-- 하단 광고 배너 -->
+
+<div id="ad-banner">
+    <!-- 예: Google AdSense 또는 다른 광고 네트워크의 스크립트 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+            data-ad-slot="xxxxxxxxxx"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+    <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
 
     
 <div style="padding-top: 3px;">
 
-
-<!-- 하단 광고 배너 -->
+<!-- 카카오 애드핏 모바일 -->
+<ins class="kakao_ad_area" style="display:none;"
+data-ad-unit = "DAN-8Lt6yjihOTdqIay1"
+data-ad-width = "320"
+data-ad-format="auto"
+data-ad-height = "50"></ins>
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+</div>
 
 <!-- 카카오 애드핏 PC -->
 <!-- <ins class="kakao_ad_area" style="display:none;"
