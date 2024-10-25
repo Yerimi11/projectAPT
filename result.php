@@ -127,11 +127,11 @@ function determineMBTI($scores) {
         }
         #character {
             font-size: 120px;
-            margin: 30px 0;
+            margin: 0px 0;
         }
         #description {
             font-size: 18px;
-            margin: 20px 0;
+            margin: 0px 0;
             line-height: 1.6;
         }
         h2 {
@@ -304,7 +304,7 @@ function determineMBTI($scores) {
                 $traits[] = "현실적이고";
             } else {
                 $scores['N'] += 3;
-                $traits[] = "독특한 취미를 가지고";
+                $traits[] = "독특한 취미를 가지기도하는";
             }
 
             if ($results[10] == "A") {
@@ -370,7 +370,7 @@ function determineMBTI($scores) {
             </p>
             <div id="character"><?php echo $selectedAnimal; ?></div>
             
-            <p style="font-size: 18px; color: #333; padding: 10px; border-radius: 10px; margin-top: 20px;">
+            <p style="font-size: 18px; color: #333; padding: 0px; border-radius: 10px; margin-top: 20px;">
                 <?php
                 foreach ($traits as $trait) {
                     echo $trait . "<br>";
@@ -380,7 +380,7 @@ function determineMBTI($scores) {
                 <p><?php echo $resultDescription; ?></p>
             </p>
             <p style="font-size: 24px; color: #ff8080; background-color: #fff0f0; padding: 10px; border-radius: 10px;">
-                <?php echo $animals[$selectedAnimal][0]; ?>같은 당신에게 어울리는 주거지는 <br>
+                <?php echo $animals[$selectedAnimal][0]; ?>같은 당신에게 어울리는 재미로 보는 주거지는 <br>
                 <strong style="color: #4a69bd;"><?php echo $selectedResidence; ?></strong></p>
         </div>
         
