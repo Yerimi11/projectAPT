@@ -31,6 +31,7 @@ session_start();
         h2 {
             color: #5d5d5d;
             font-size: 18px;
+            margin-bottom: 100px;
         }
         button:hover {
             background-color: #ff8080;
@@ -51,6 +52,9 @@ session_start();
         
         <form action="result" method="post">
             <div id="question-container">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
                 <div class="question" data-question="1">
                     <h2>1. 갑자기 복권에 당첨되어 아파트를 살 수 있다면?</h2>
                     <button type="button" onclick="selectAnswer(1, 'B')">도심 한복판의 초고층 아파트</button>
@@ -137,6 +141,7 @@ function selectAnswer(questionNumber, answer) {
         document.querySelector(`.question[data-question="${questionNumber}"]`).classList.remove('active');
         currentQuestion++;
         document.querySelector(`.question[data-question="${currentQuestion}"]`).classList.add('active');
+        updateProgress(currentQuestion, totalQuestions);
     } else {
         document.getElementById('submit-button').style.display = 'block';
     }
@@ -144,7 +149,16 @@ function selectAnswer(questionNumber, answer) {
 
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.question[data-question="1"]').classList.add('active');
+    updateProgress(1, totalQuestions);
 });
+
+function updateProgress(current, total) {
+  const progressBar = document.querySelector('.progress-bar');
+  const percentage = (current / total) * 100;
+  
+  progressBar.style.width = percentage + '%';
+}
+
 
 </script>
 <div style="padding-top: 3px;">
