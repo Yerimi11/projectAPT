@@ -68,7 +68,7 @@ $testCompletedCount = $redis->get('test_completed_count') ?: 0;
                 color: #333;
                 padding: 15px;
                 border-radius: 5px;
-                margin-top: 20px;
+                margin-top: 50px;
                 border: 1px solid #e0e0e0;
             }
             .completion-count p {
