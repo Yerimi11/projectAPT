@@ -142,7 +142,7 @@ function selectAnswer(questionNumber, answer) {
         document.querySelector(`.question[data-question="${questionNumber}"]`).classList.remove('active');
         currentQuestion++;
         document.querySelector(`.question[data-question="${currentQuestion}"]`).classList.add('active');
-        updateProgress(currentQuestion, totalQuestions);
+        updateProgress();
     } else {
         document.getElementById('submit-button').style.display = 'block';
     }
@@ -150,19 +150,17 @@ function selectAnswer(questionNumber, answer) {
 
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.question[data-question="1"]').classList.add('active');
-    updateProgress(1, totalQuestions);
+    updateProgress();
 });
 
-function updateProgress(current, total) {
-  const progressBar = document.querySelector('.progress-bar');
-  const homeIcon = document.querySelector('.home-icon');
-  const percentage = (current / total) * 100;
+function updateProgress() {
+    const progressBar = document.querySelector('.progress-bar');
+    const homeIcon = document.querySelector('.home-icon');
+    const percentage = (currentQuestion / totalQuestions) * 100;
 
-  progressBar.style.width = percentage + '%';
-  homeIcon.style.left = `calc(${percentage}% - 10px)`;
+    progressBar.style.width = `${percentage}%`;
+    homeIcon.style.left = `calc(${percentage}% - 10px)`;
 }
-
-
 </script>
 <div style="padding-top: 3px;">
 
