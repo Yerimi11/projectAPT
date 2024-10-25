@@ -87,6 +87,15 @@ $mbtiAnimals = [
     'ENTJ' => ['animal' => '🦁', 'residence' => $residences[10]]   // 사자, 공항 벤치 위
 ];
 
+function determineMBTI($scores) {
+    $mbti = '';
+    $mbti .= ($scores['E'] > $scores['I']) ? 'E' : 'I';
+    $mbti .= ($scores['S'] > $scores['N']) ? 'S' : 'N';
+    $mbti .= ($scores['F'] > $scores['T']) ? 'F' : 'T';
+    $mbti .= ($scores['J'] > $scores['P']) ? 'J' : 'P';
+    return $mbti;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ko">
