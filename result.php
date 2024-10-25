@@ -68,25 +68,6 @@ $residences = [
     '어제 배송온 택배 박스'
 ];
 
-$mbtiAnimals = [
-    'ISTJ' => ['animal' => '🐘', 'residence' => $residences[3]],   // 코끼리, 강남 오피스텔
-    'ISFJ' => ['animal' => '🐨', 'residence' => $residences[5]],   // 코알라, 한적한 시골 농가
-    'INFJ' => ['animal' => '🦉', 'residence' => $residences[2]],   // 부엉이, 북촌 한옥
-    'INTJ' => ['animal' => '🦊', 'residence' => $residences[14]],  // 여우, 편의점 냉장고 안
-    'ISTP' => ['animal' => '🐱', 'residence' => $residences[19]],  // 고양이, 어제 배송온 택배 박스
-    'ISFP' => ['animal' => '🐰', 'residence' => $residences[8]],   // 토끼, 해변가 별장
-    'INFP' => ['animal' => '🦄', 'residence' => $residences[17]],  // 유니콘, 포켓몬 몬스터볼 안
-    'INTP' => ['animal' => '🦅', 'residence' => $residences[11]],  // 독수리, 숲속 글램핑장
-    'ESTP' => ['animal' => '🐯', 'residence' => $residences[9]],   // 호랑이, 길바닥
-    'ESFP' => ['animal' => '🦜', 'residence' => $residences[12]],  // 앵무새, 지하철역 화장실
-    'ENFP' => ['animal' => '🐼', 'residence' => $residences[1]],   // 팬더, 한강뷰 펜트하우스
-    'ENTP' => ['animal' => '🦁', 'residence' => $residences[18]],  // 사자, 스폰지밥의 파인애플 집
-    'ESTJ' => ['animal' => '🐶', 'residence' => $residences[4]],   // 강아지, 제주도 독채 펜션
-    'ESFJ' => ['animal' => '🐻', 'residence' => $residences[6]],   // 곰, 도심 속 빌라
-    'ENFJ' => ['animal' => '🦄', 'residence' => $residences[0]],   // 유니콘, 트리마제 아파트
-    'ENTJ' => ['animal' => '🦁', 'residence' => $residences[10]]   // 사자, 공항 벤치 위
-];
-
 function determineMBTI($scores) {
     $mbti = '';
     $mbti .= ($scores['E'] > $scores['I']) ? 'E' : 'I';
@@ -309,7 +290,7 @@ function determineMBTI($scores) {
 
             if ($results[10] == "A") {
                 $scores['F'] += 3; $scores['S'] += 3; 
-                $traits[] = "이웃과 소통하는 것을 선호하고";
+                $traits[] = "이웃과 소통하는 것을 선호하는";
             } else {
                 $scores['T'] += 3; $scores['J'] += 1;
             }
