@@ -1,6 +1,5 @@
 <?php
 session_start();
-// 테스트를 다시 시작할 때 이전 결과를 초기화
 unset($_SESSION['result']);
 
 // Redis 연결
@@ -10,6 +9,7 @@ $redis->connect('127.0.0.1', 6379);
 // 테스트 완료 카운트 가져오기
 $testCompletedCount = $redis->get('test_completed_count') ?: 0;
 ?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,8 +17,6 @@ $testCompletedCount = $redis->get('test_completed_count') ?: 0;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나에게 어울리는 아파트는?</title>
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <!-- 구글 애드센스 -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2599437760542212" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
     <style>
         .container {
@@ -61,7 +59,6 @@ $testCompletedCount = $redis->get('test_completed_count') ?: 0;
         </p>
         <a href="test" class="start-button">테스트 시작하기 🎉</a>
         
-        <!-- 테스트 완료 카운트 표시 -->
         <div class="completion-count">
             <p>지금까지 <span class="count"><?php echo number_format($testCompletedCount); ?></span>명이<br>테스트를 완료했습니다!</p>
         </div>
@@ -87,8 +84,6 @@ $testCompletedCount = $redis->get('test_completed_count') ?: 0;
         </style>
     </div>
     
-
-<!-- 하단 광고 배너 -->
 <!-- 카카오 애드핏 모바일 -->
 <ins class="kakao_ad_area" style="display:none;"
 data-ad-unit = "DAN-8Lt6yjihOTdqIay1"
@@ -96,24 +91,6 @@ data-ad-width = "320"
 data-ad-height = "50"></ins>
 <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 
-<!-- 카카오 애드핏 PC -->
-<!-- <ins class="kakao_ad_area" style="display:none;"
-data-ad-unit = "DAN-90xLqmF4z7W7of9j"
-data-ad-width = "728"
-data-ad-height = "90"></ins>
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> -->
 
-<div id="bottom-ad-banner">
-    <!-- 구글 애드센스 -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-2599437760542212"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
-    <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
 </body>
 </html>

@@ -53,13 +53,13 @@ session_start();
             <div id="question-container">
                 <div class="question" data-question="1">
                     <h2>1. 갑자기 복권에 당첨되어 아파트를 살 수 있다면?</h2>
-                    <button type="button" onclick="selectAnswer(1, 'A')">조용한 시골 마을의 펜트하우스</button>
                     <button type="button" onclick="selectAnswer(1, 'B')">도심 한복판의 초고층 아파트</button>
+                    <button type="button" onclick="selectAnswer(1, 'A')">조용한 시골 마을의 펜트하우스</button>
                 </div>
                 <div class="question" data-question="2">
-                    <h2>2. 당신의 아파트에 비밀 방을 만든다면?</h2>
-                    <button type="button" onclick="selectAnswer(2, 'A')">영화관 같은 홈시어터룸</button>
-                    <button type="button" onclick="selectAnswer(2, 'B')">비밀 탈출구가 있는 안전 벙커</button>
+                    <h2>2. 아파트 주차장에서 차키를 잃어버렸다면?</h2>
+                    <button type="button" onclick="selectAnswer(2, 'A')">이웃들에게 도움을 요청한다</button>
+                    <button type="button" onclick="selectAnswer(2, 'B')">혼자서 끝까지 찾아본다</button>
                 </div>
                 <div class="question" data-question="3">
                     <h2>3. 아파트 엘리베이터에서 유명인을 만난다면?</h2>
@@ -72,34 +72,49 @@ session_start();
                     <button type="button" onclick="selectAnswer(4, 'B')">경비실에 신고한다</button>
                 </div>
                 <div class="question" data-question="5">
-                    <h2>5. 아파트 내 특별한 공간을 하나 만들 수 있다면?</h2>
-                    <button type="button" onclick="selectAnswer(5, 'A')">옥상 정원과 바베큐장</button>
-                    <button type="button" onclick="selectAnswer(5, 'B')">지하 와인 셀러와 시음실</button>
+                    <h2>5. 아파트 단지 내 특이한 직업의 주민이 있다면?</h2>
+                    <button type="button" onclick="selectAnswer(5, 'A')">호기심에 친해지려 노력한다</button>
+                    <button type="button" onclick="selectAnswer(5, 'B')">의심스러워 경계한다</button>
                 </div>
                 <div class="question" data-question="6">
-                    <h2>6. 아파트에 귀신이 산다는 소문이 돈다면?</h2>
-                    <button type="button" onclick="selectAnswer(6, 'A')">흥미진진! 직접 탐사 나간다</button>
-                    <button type="button" onclick="selectAnswer(6, 'B')">겁나서 이사 갈 준비를 한다</button>
+                    <h2>6. 아파트 관리비가 갑자기 2배로 오른다면?</h2>
+                    <button type="button" onclick="selectAnswer(6, 'A')">주민 대표로 나서서 항의한다</button>
+                    <button type="button" onclick="selectAnswer(6, 'B')">조용히 다른 아파트를 알아본다</button>
                 </div>
                 <div class="question" data-question="7">
-                    <h2>7. 아파트 주차장에서 차키를 잃어버렸다면?</h2>
-                    <button type="button" onclick="selectAnswer(7, 'A')">이웃들에게 도움을 요청한다</button>
-                    <button type="button" onclick="selectAnswer(7, 'B')">혼자서 끝까지 찾아본다</button>
+                    <h2>7. 당신의 아파트에 비밀 방을 만든다면?</h2>
+                    <button type="button" onclick="selectAnswer(7, 'A')">영화관 같은 홈시어터룸</button>
+                    <button type="button" onclick="selectAnswer(7, 'B')">비밀 탈출구가 있는 안전 벙커</button>
                 </div>
                 <div class="question" data-question="8">
-                    <h2>8. 아파트 내 반려동물 동아리에 가입한다면?</h2>
-                    <button type="button" onclick="selectAnswer(8, 'A')">강아지 산책 모임</button>
-                    <button type="button" onclick="selectAnswer(8, 'B')">이국적인 파충류 모임</button>
+                    <h2>8. 아파트에 귀신이 산다는 소문이 돈다면?</h2>
+                    <button type="button" onclick="selectAnswer(8, 'B')">겁나서 이사 갈 준비를 한다</button>
+                    <button type="button" onclick="selectAnswer(8, 'A')">흥미진진! 직접 탐사 나간다</button>
                 </div>
                 <div class="question" data-question="9">
-                    <h2>9. 아파트 단지 내 특이한 직업의 주민이 있다면?</h2>
-                    <button type="button" onclick="selectAnswer(9, 'A')">호기심에 친해지려 노력한다</button>
-                    <button type="button" onclick="selectAnswer(9, 'B')">의심스러워 경계한다</button>
+                    <h2>9. 아파트 내 반려동물 동아리에 가입한다면?</h2>
+                    <button type="button" onclick="selectAnswer(9, 'A')">강아지 산책 모임</button>
+                    <button type="button" onclick="selectAnswer(9, 'B')">이국적인 파충류 모임</button>
                 </div>
                 <div class="question" data-question="10">
-                    <h2>10. 아파트 관리비가 갑자기 2배로 오른다면?</h2>
-                    <button type="button" onclick="selectAnswer(10, 'A')">주민 대표로 나서서 항의한다</button>
-                    <button type="button" onclick="selectAnswer(10, 'B')">조용히 다른 아파트를 알아본다</button>
+                    <h2>10. 아파트를 고를 때 중요하게 생각하는 요소는?</h2>
+                    <button type="button" onclick="selectAnswer(10, 'A')">주변 환경과 아파트내 커뮤니티</button>
+                    <button type="button" onclick="selectAnswer(10, 'B')">아파트의 투자 가치</button>
+                </div>
+                <div class="question" data-question="11">
+                    <h2>11. 아파트 단지 내 정원 관리 방식을 결정해야한다면?</h2>
+                    <button type="button" onclick="selectAnswer(11, 'A')">식물 목록을 준비해 상의한다</button>
+                    <button type="button" onclick="selectAnswer(11, 'B')">도구와 씨앗만 준비하고 필요에 따라 꾸민다</button>
+                </div>
+                <div class="question" data-question="12">
+                    <h2>12. 새로운 인테리어를 하기로 결정한다면?</h2>
+                    <button type="button" onclick="selectAnswer(12, 'A')">처음부터 전체 디자인을 세운다</button>
+                    <button type="button" onclick="selectAnswer(12, 'B')">하나씩 가구를 구입하며 꾸민다</button>
+                </div>
+                <div class="question" data-question="13">
+                    <h2>13. 단지 내 다양한 행사 참석 여부는 어떻게 결정할까?</h2>
+                    <button type="button" onclick="selectAnswer(13, 'A')">미리 정해서 스케줄에 맞춰 참여한다</button>
+                    <button type="button" onclick="selectAnswer(13, 'B')">흥미가 생기면 즉흥적으로 참여한다</button>
                 </div>
             </div>
             <input type="hidden" name="results" id="results">
@@ -111,13 +126,13 @@ session_start();
 
 <script>
 let currentQuestion = 1;
-const totalQuestions = 10;
+const totalQuestions = 13;
 const answers = {};
 
 function selectAnswer(questionNumber, answer) {
     answers[questionNumber] = answer;
     document.getElementById('results').value = JSON.stringify(answers);
-
+    
     if (questionNumber < totalQuestions) {
         document.querySelector(`.question[data-question="${questionNumber}"]`).classList.remove('active');
         currentQuestion++;
@@ -130,9 +145,10 @@ function selectAnswer(questionNumber, answer) {
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.question[data-question="1"]').classList.add('active');
 });
+
 </script>
 <div style="padding-top: 3px;">
-<!-- 하단 광고 배너 -->
+
 <!-- 카카오 애드핏 모바일 -->
 <ins class="kakao_ad_area" style="display:none;"
 data-ad-unit = "DAN-8Lt6yjihOTdqIay1"
@@ -141,24 +157,5 @@ data-ad-height = "50"></ins>
 <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 </div>
 
-<!-- 카카오 애드핏 PC -->
-<!-- <ins class="kakao_ad_area" style="display:none;"
-data-ad-unit = "DAN-90xLqmF4z7W7of9j"
-data-ad-width = "728"
-data-ad-height = "90"></ins>
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> -->
-
-<div id="bottom-ad-banner">
-<!-- 구글 애드센스 -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-2599437760542212"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
-<script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
 </body>
 </html>

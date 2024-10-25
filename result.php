@@ -1,9 +1,98 @@
+<?php
+session_start();
+if (isset($_SESSION['result'])) {
+    $mbti = $_SESSION['result']['mbti'];
+    $scores = $_SESSION['result']['scores'];
+    $traits = $_SESSION['result']['traits'];
+    $selectedAnimal = $_SESSION['result']['selectedAnimal'];
+    $selectedResidence = $_SESSION['result']['selectedResidence'];
+} 
+
+$animals = [
+    '🐰' => ['토끼', '귀엽고', '민첩한'],
+    '🐻' => ['곰', '든든하고', '포근한'],
+    '🦊' => ['여우', '영리하고', '매력적인'],
+    '🐨' => ['코알라', '느긋하고', '평화로운'],
+    '🦁' => ['사자', '당당하고', '카리스마 있는'],
+    '🐼' => ['팬더', '독특하고', '사랑스러운'],
+    '🐯' => ['호랑이', '용감하고', '강인한'],
+    '🦄' => ['유니콘', '환상적이고', '특별한'],
+    '🐘' => ['코끼리', '지혜롭고', '온화한'],
+    '🦉' => ['부엉이', '지적이고', '신중한'],
+    '🐶' => ['강아지', '충실하고', '활발한'],
+    '🐱' => ['고양이', '우아하고', '독립적인'],
+    '🦜' => ['앵무새', '수다스럽고', '화려한'],
+    '🐢' => ['거북이', '여유롭고', '느긋한'],
+    '🦅' => ['독수리', '독특하고', '호기심 많은']
+];
+
+$mbtiAnimals = [
+    'ISTJ' => ['animal' => '🐘', 'residence' => '강남 오피스텔'],
+    'ISFJ' => ['animal' => '🐨', 'residence' => '한적한 시골 농가'],
+    'INFJ' => ['animal' => '🦉', 'residence' => '북촌 한옥'],
+    'INTJ' => ['animal' => '🦊', 'residence' => '편의점 냉장고 안'],
+    'ISTP' => ['animal' => '🐱', 'residence' => '어제 배송온 택배 박스'],
+    'ISFP' => ['animal' => '🐰', 'residence' => '해변가 별장'],
+    'INFP' => ['animal' => '🦄', 'residence' => '포켓몬 몬스터볼 안'],
+    'INTP' => ['animal' => '🦅', 'residence' => '숲속 글램핑장'],
+    'ESTP' => ['animal' => '🐯', 'residence' => '길바닥'],
+    'ESFP' => ['animal' => '🦜', 'residence' => '지하철역 화장실'],
+    'ENFP' => ['animal' => '🐼', 'residence' => '한강뷰 펜트하우스'],
+    'ENTP' => ['animal' => '🦁', 'residence' => '스폰지밥의 파인애플 집'],
+    'ESTJ' => ['animal' => '🐶', 'residence' => '제주도 독채 펜션'],
+    'ESFJ' => ['animal' => '🐻', 'residence' => '도심 속 빌라'],
+    'ENFJ' => ['animal' => '🦄', 'residence' => '트리마제 아파트'],
+    'ENTJ' => ['animal' => '🦁', 'residence' => '공항 벤치 위']
+];
+
+$residences = [
+    '트리마제 아파트',
+    '한강뷰 펜트하우스',
+    '북촌 한옥',
+    '강남 오피스텔',
+    '제주도 독채 펜션',
+    '한적한 시골 농가',
+    '도심 속 빌라',
+    '산장',                  // 7 X
+    '해변가 별장',
+    '길바닥',                 // 9 X
+    '공항 벤치 위',
+    '숲속 글램핑장',
+    '지하철역 화장실',          // 12 X
+    '구름 위의 솜사탕 펜트하우스', // 13 X
+    '편의점 냉장고 안',
+    '거대 햄스터 쳇바퀴',
+    '슈퍼마리오의 파이프 속',
+    '포켓몬 몬스터볼 안',
+    '스폰지밥의 파인애플 집',
+    '어제 배송온 택배 박스'
+];
+
+$mbtiAnimals = [
+    'ISTJ' => ['animal' => '🐘', 'residence' => $residences[3]],   // 코끼리, 강남 오피스텔
+    'ISFJ' => ['animal' => '🐨', 'residence' => $residences[5]],   // 코알라, 한적한 시골 농가
+    'INFJ' => ['animal' => '🦉', 'residence' => $residences[2]],   // 부엉이, 북촌 한옥
+    'INTJ' => ['animal' => '🦊', 'residence' => $residences[14]],  // 여우, 편의점 냉장고 안
+    'ISTP' => ['animal' => '🐱', 'residence' => $residences[19]],  // 고양이, 어제 배송온 택배 박스
+    'ISFP' => ['animal' => '🐰', 'residence' => $residences[8]],   // 토끼, 해변가 별장
+    'INFP' => ['animal' => '🦄', 'residence' => $residences[17]],  // 유니콘, 포켓몬 몬스터볼 안
+    'INTP' => ['animal' => '🦅', 'residence' => $residences[11]],  // 독수리, 숲속 글램핑장
+    'ESTP' => ['animal' => '🐯', 'residence' => $residences[9]],   // 호랑이, 길바닥
+    'ESFP' => ['animal' => '🦜', 'residence' => $residences[12]],  // 앵무새, 지하철역 화장실
+    'ENFP' => ['animal' => '🐼', 'residence' => $residences[1]],   // 팬더, 한강뷰 펜트하우스
+    'ENTP' => ['animal' => '🦁', 'residence' => $residences[18]],  // 사자, 스폰지밥의 파인애플 집
+    'ESTJ' => ['animal' => '🐶', 'residence' => $residences[4]],   // 강아지, 제주도 독채 펜션
+    'ESFJ' => ['animal' => '🐻', 'residence' => $residences[6]],   // 곰, 도심 속 빌라
+    'ENFJ' => ['animal' => '🦄', 'residence' => $residences[0]],   // 유니콘, 트리마제 아파트
+    'ENTJ' => ['animal' => '🦁', 'residence' => $residences[10]]   // 사자, 공항 벤치 위
+];
+
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>당신의 거주 캐릭터와 어울리는 주거지</title>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -117,8 +206,6 @@
     <div class="result-container">
         <h1>🏠 당신의 거주 캐릭터와 어울리는 주거지 🏠</h1>
         <?php
-        session_start();
-
         // Redis 연결
         $redis = new Redis();
         $redis->connect('127.0.0.1', 6379);
@@ -126,210 +213,149 @@
         // 테스트 완료 카운터 증가
         $redis->incr('test_completed_count');
 
-        // 동물과 거주지 정의
-        $animals = [
-            '🐰' => ['토끼', '귀엽고', '민첩한'],
-            '🐻' => ['곰', '든든하고', '포근한'],
-            '🦊' => ['여우', '영리하고', '매력적인'],
-            '🐨' => ['코알라', '느긋하고', '평화로운'],
-            '🦁' => ['사자', '당당하고', '카리스마 있는'],
-            '🐼' => ['팬더', '독특하고', '사랑스러운'],
-            '🐯' => ['호랑이', '용감하고', '강인한'],
-            '🦄' => ['유니콘', '환상적이고', '특별한'],
-            '🐘' => ['코끼리', '지혜롭고', '온화한'],
-            '🦉' => ['부엉이', '지적이고', '신중한'],
-            '🐶' => ['강아지', '충실하고', '활발한'],
-            '🐱' => ['고양이', '우아하고', '독립적인'],
-            '🦜' => ['앵무새', '수다스럽고', '화려한'],
-            '🐢' => ['거북이', '여유롭고', '느긋한'],
-            '🦅' => ['독수리', '독특하고', '호기심 많은']
-        ];
-
-        $residences = [
-            '트리마제 아파트',
-            '한강뷰 펜트하우스',
-            '북촌 한옥',
-            '강남 오피스텔',
-            '제주도 독채 펜션',
-            '한적한 시골 농가',
-            '도심 속 빌라',
-            '산장',                  // 7 X
-            '해변가 별장',
-            '길바닥',                 // 9 X
-            '공항 벤치 위',
-            '숲속 글램핑장',
-            '지하철역 화장실',          // 12 X
-            '구름 위의 솜사탕 펜트하우스', // 13 X
-            '편의점 냉장고 안',
-            '거대 햄스터 쳇바퀴',
-            '슈퍼마리오의 파이프 속',
-            '포켓몬 몬스터볼 안',
-            '스폰지밥의 파인애플 집',
-            '어제 배송온 택배 박스'
-        ];
-
         // POST 데이터가 있는 경우에만 새로운 결과를 계산
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['results'])) {
             $results = json_decode($_POST['results'], true);
             
             $traits = [];
             $scores = [
-                '활발' => 0, '조용' => 0, '사교적' => 0, '독립적' => 0,
-                '실용적' => 0, '창의적' => 0, '모험적' => 0, '안정적' => 0
+                'E' => 0, 'I' => 0,
+                'S' => 0, 'N' => 0,
+                'F' => 0, 'T' => 0,
+                'J' => 0, 'P' => 0 
             ];
 
             // 질문별 점수 계산
             if ($results[1] == "A") {
-                $scores['조용'] += 3; $scores['안정적'] += 2;
-                $traits[] = "조용한 환경을 선호하며";
-            } else {
-                $scores['모험적'] += 3; $scores['활발'] += 2;
+                $scores['E'] += 3; $scores['S'] += 2;
                 $traits[] = "활기찬 도시 생활을 즐기며";
+            } else {
+                $scores['I'] += 3; $scores['S'] += 1;
+                $traits[] = "조용한 환경을 선호하며";
             }
 
             if ($results[2] == "A") {
-                $scores['창의적'] += 3; $scores['사교적'] += 2;
-                $traits[] = "엔터테인먼트를 즐기고";
+                $scores['E'] += 2; $scores['F'] += 1;
+                $traits[] = "원하는 것을 이야기 할 줄 알고";
             } else {
-                $scores['실용적'] += 3; $scores['독립적'] += 2;
-                $traits[] = "안전을 중시하고";
+                $scores['I'] += 3;
+                $traits[] = "자립심이 강하고";
             }
 
             if ($results[3] == "A") {
-                $scores['사교적'] += 3; $scores['활발'] += 2;
+                $scores['E'] += 3;
                 $traits[] = "사교적이고 외향적이며";
             } else {
-                $scores['조용'] += 3; $scores['독립적'] += 2;
+                $scores['I'] += 3; $scores['J'] += 2;
                 $traits[] = "프라이버시를 중시하며";
             }
 
             if ($results[4] == "A") {
-                $scores['사교적'] += 3; $scores['활발'] += 2;
+                $scores['E'] += 3;
                 $traits[] = "파티를 즐기기도하고";
             } else {
-                $scores['조용'] += 3; $scores['실용적'] += 2;
+                $scores['I'] += 3; $scores['S'] += 2; $scores['T'] += 2;
                 $traits[] = "평화로운 환경을 선호하고";
             }
 
             if ($results[5] == "A") {
-                $scores['사교적'] += 2; $scores['창의적'] += 3;
-                $traits[] = "야외 활동을 즐기기도 하며";
-            } else {
-                $scores['조용'] += 2; $scores['독립적'] += 3;
-                $traits[] = "실내 활동을 선호하기도 하며";
-            }
-
-            if ($results[6] == "A") {
-                $scores['모험적'] += 3; $scores['창의적'] += 2;
-                $traits[] = "호기심 많고";
-            } else {
-                $scores['안정적'] += 3; $scores['조용'] += 2;
-                $traits[] = "안전을 중시하고";
-            }
-
-            if ($results[7] == "A") {
-                $scores['사교적'] += 3; $scores['활발'] += 2;
-                $traits[] = "이웃과 소통하는 것을 좋아하며";
-            } else {
-                $scores['독립적'] += 3; $scores['실용적'] += 2;
-                $traits[] = "자립심이 강하고";
-            }
-
-            if ($results[8] == "A") {
-                $scores['사교적'] += 2; $scores['활발'] += 3;
-                $traits[] = "반려동물을 사랑하고";
-            } else {
-                $scores['독립적'] += 2; $scores['창의적'] += 3;
-                $traits[] = "독특한 취미를 가지고";
-            }
-
-            if ($results[9] == "A") {
-                $scores['사교적'] += 3; $scores['창의적'] += 2;
+                $scores['E'] += 3; $scores['N'] += 2;
                 $traits[] = "새로운 사람들과 어울리기를 좋아하고";
             } else {
-                $scores['독립적'] += 3; $scores['조용'] += 2;
+                $scores['I'] += 3; $scores['S'] += 1;
                 $traits[] = "신중하고 조심스럽고";
             }
 
-            if ($results[10] == "A") {
-                $scores['활발'] += 3; $scores['사교적'] += 2;
+            if ($results[6] == "A") {
+                $scores['E'] += 2; $scores['F'] += 2;
                 $traits[] = "적극적이고 주도적인";
             } else {
-                $scores['조용'] += 3; $scores['독립적'] += 2;
+                $scores['I'] += 2; $scores['T'] += 2; $scores['J'] += 1;
+            }
+
+            if ($results[7] == "A") {
+                $scores['S'] += 3;
+                $traits[] = "문화생활을 즐기고";
+            } else {
+                $scores['N'] += 3;
+                $traits[] = "호기심 많고";
+            }
+
+            if ($results[8] == "A") {
+                $scores['S'] += 3; $scores['N'] -= 1;
+                $traits[] = "안전을 중시하고";
+            } else {
+                $scores['N'] += 3; $scores['P'] += 2;
+                $traits[] = "안전을 중시하고";
+            }
+
+            if ($results[9] == "A") {
+                $scores['S'] += 3;
+                $traits[] = "반려동물을 사랑하고";
+                $traits[] = "현실적이고";
+            } else {
+                $scores['N'] += 3;
+                $traits[] = "독특한 취미를 가지고";
+            }
+
+            if ($results[10] == "A") {
+                $scores['F'] += 3; $scores['S'] += 3; 
+                $traits[] = "이웃과 소통하는 것을 선호하고";
+            } else {
+                $scores['T'] += 3; $scores['J'] += 1;
+            }
+
+            if ($results[11] == "A") {
+                $scores['J'] += 3; $scores['E'] += 1;
+            } else {
+                $scores['P'] += 3; $scores['I'] += 1;
+            }
+
+            if ($results[12] == "A") {
+                $scores['J'] += 3; $scores['N'] += 1;
+                $traits[] = "준비성이 철저한";
+            } else {
+                $scores['P'] += 3; $scores['N'] += 1;
+            }
+
+            if ($results[13] == "A") {
+                $scores['J'] += 3; $scores['E'] += 1;
+            } else {
+                $scores['P'] += 3; $scores['N'] += 1;
                 $traits[] = "변화를 선호하는";
             }
 
-            arsort($scores);
-            $topTraits = array_slice(array_keys($scores), 0, 2);
+            $mbti = determineMBTI($scores);
 
-            // 특성 조합에 따른 동물과 거주지 매핑
-            $traitCombinations = [
-                '활발_사교적'  => ['animal' => '🦜', 'residence' => $residences[12]],   // 토끼, 귀엽고, 민첩한 / 지하철역 화장실
-                '활발_모험적'  => ['animal' => '🐯', 'residence' => $residences[9]],   // 호랑이, 용감하고, 강인한 / 길바닥
-                '조용_안정적'  => ['animal' => '🐨', 'residence' => $residences[15]],  // 코알라, 느긋하고, 평화로운 / 거대 햄스터 쳇바퀴
-                '조용_독립적'  => ['animal' => '🦉', 'residence' => $residences[5]],   // 부엉이, 지적이고, 신중한 / 한적한 시골 농가
-                '사교적_창의적' => ['animal' => '🦄', 'residence' => $residences[17]],  // 유니콘, 환상적이고, 특별한 / 포켓몬 몬스터볼 안
-                '독립적_실용적' => ['animal' => '🦊', 'residence' => $residences[14]],  // 편의점 냉장고 안
-                '실용적_안정적' => ['animal' => '🐘', 'residence' => $residences[3]],   // 강남 오피스텔
-                '창의적_모험적' => ['animal' => '🦁', 'residence' => $residences[18]],  // 스폰지밥의 파인애플 집
-                '모험적_사교적' => ['animal' => '🐼', 'residence' => $residences[1]],   // 팬더, 독특하고, 사랑스러운, 한강뷰 펜트하우스
-                '안정적_창의적' => ['animal' => '🐻', 'residence' => $residences[6]],   // 도심 속 빌라
-                '안정적_사교적' => ['animal' => '🐶', 'residence' => $residences[4]],   // 제주도 독채 펜션
-                '독립적_창의적' => ['animal' => '🐱', 'residence' => $residences[19]],  // 어제 배송온 택배 박스
-                '모험적_실용적' => ['animal' => '🦅', 'residence' => $residences[11]],  // 지하철역 화장실
-                '사교적_실용적' => ['animal' => '🐰', 'residence' => $residences[8]],   // 해변가 별장
-                '조용_창의적'  => ['animal' => '🦉', 'residence' => $residences[2]],    // 북촌 한옥
-                '활발_독립적'  => ['animal' => '🐱', 'residence' => $residences[0]],    // 트리마제 아파트
-                '안정적_모험적' => ['animal' => '🐢', 'residence' => $residences[16]],  // 슈퍼마리오의 파이프 속
-                '실용적_창의적' => ['animal' => '🦊', 'residence' => $residences[10]]   // 공항 벤치 위
-            ];
-
-            $traitKey = implode('_', $topTraits);
-
-            // 조합에 해당하는 동물과 거주지 선택
-            if (isset($traitCombinations[$traitKey])) {
-                $selectedAnimal = $traitCombinations[$traitKey]['animal'];
-                $selectedResidence = $traitCombinations[$traitKey]['residence'];
-            } else {
-                // 매칭되는 조합이 없을 경우 가장 높은 점수의 특성을 기반으로 선택
-                $highestTrait = $topTraits[0];
-                foreach ($traitCombinations as $key => $value) {
-                    if (strpos($key, $highestTrait) !== false) {
-                        $selectedAnimal = $value['animal'];
-                        $selectedResidence = $value['residence'];
-                        break;
-                    }
-                }
-            }
+            // MBTI 결정 후 동물과 거주지 선택
+            $selectedAnimal     = $mbtiAnimals[$mbti]['animal'];
+            $selectedResidence  = $mbtiAnimals[$mbti]['residence'];
 
             // 결과를 세션에 저장
             $_SESSION['result'] = [
-                'selectedAnimal' => $selectedAnimal,
-                'selectedResidence' => $selectedResidence,
-                'scores' => $scores,
-                'traits' => $traits,
-                'topTraits' => $topTraits
+                'mbti'              => $mbti,
+                'scores'            => $scores,
+                'traits'            => $traits,
+                'selectedAnimal'    => $selectedAnimal,
+                'selectedResidence' => $selectedResidence
             ];
+
         } elseif (!isset($_SESSION['result'])) {
             // POST 데이터가 없고 세션에도 결과가 없는 경우 인덱스 페이지로 리다이렉트
             header('Location: index');
             exit;
         }
 
-        // 세션에서 저장된 결과 불러오기
-        extract($_SESSION['result']);
-
-        // 선택된 동물에 대한 정보 가져오기
-        $animalInfo = $animals[$selectedAnimal];
-        $animalName = $animalInfo[0];
-        $animalTraits = array_slice($animalInfo, 1);
-
         // 결과 설명 생성
-        $resultDescription = "당신은 " . implode(", ", $animalTraits) . " 성향을 가지고 있습니다. ";
+        $animalInfo = $animals[$selectedAnimal];
+        $resultDescription = "당신은 " . $animalInfo[1] . ", " . $animalInfo[2] . " 성향을 가지고 있습니다. ";
 
         ?>
         <div id="description">
-            <p style="font-size: 21px; color: #ff6b6b; background-color: #fff0f0; padding: 10px; border-radius: 10px;">당신의 아파트 동물 캐릭터는 <br><strong style="color: #4a69bd;"><?php echo $animalName; ?></strong></p>
+            <p style="font-size: 21px; color: #ff6b6b; background-color: #fff0f0; padding: 10px; border-radius: 10px;">
+                당신의 아파트 동물 캐릭터는 <br>
+                <strong style="color: #4a69bd;"><?php echo $animals[$selectedAnimal][0]; ?></strong>
+            </p>
             <div id="character"><?php echo $selectedAnimal; ?></div>
             
             <p style="font-size: 18px; color: #333; padding: 10px; border-radius: 10px; margin-top: 20px;">
@@ -341,59 +367,30 @@
                 특성을 가진 주민이군요!
                 <p><?php echo $resultDescription; ?></p>
             </p>
-            <p style="font-size: 24px; color: #ff8080; background-color: #fff0f0; padding: 10px; border-radius: 10px;"><?php echo $animalName; ?>같은 당신에게 어울리는 주거지는 <br><strong style="color: #4a69bd;"><?php echo $selectedResidence; ?></strong></p>
+            <p style="font-size: 24px; color: #ff8080; background-color: #fff0f0; padding: 10px; border-radius: 10px;">
+                <?php echo $animals[$selectedAnimal][0]; ?>같은 당신에게 어울리는 주거지는 <br>
+                <strong style="color: #4a69bd;"><?php echo $selectedResidence; ?></strong></p>
         </div>
         
         <h2>🌟 당신의 주거 스타일 🌟</h2>
         <ul>
-            <?php foreach ($scores as $trait => $score): ?>
-                <li><?php echo $trait; ?>: <?php echo $score > 0 ? str_repeat('⭐', $score) : '-'; ?></li>
+            <?php
+            $traitDescriptions = [
+                'E' => '활발, 사교적',  'I' => '독립적, 조용',
+                'S' => '실용적, 안정적', 'N' => '창의적, 모험적',
+                'F' => '감정적',       'T' => '논리적',
+                'J' => '계획적',       'P' => '즉흥적'
+            ];
+            foreach ($scores as $trait => $score):
+                $description = $traitDescriptions[$trait];
+            ?>
+                <li><?php echo $description; ?>: <?php echo $score > 0 ? str_repeat('⭐', $score) : '-'; ?></li>
             <?php endforeach; ?>
         </ul>
         
     </div>
 
 
-
-
-<!-- 테스트 다시하기 버튼과 공유하기 버튼 추가 -->
-    <div id="button-container">
-        <button onclick="captureAndShare()">📸 결과 이미지 저장하기</button>
-        <button onclick="shareUrl()">🔗 링크 공유하기</button>
-        <button onclick="location.href='index'">🔄 테스트 다시하기</button>
-    </div>
-
-    <script>
-    function shareUrl() {
-        var dummy = document.createElement('input'),
-        text = window.location.origin + '/index';
-
-        document.body.appendChild(dummy);
-        dummy.value = text;
-        dummy.select();
-        document.execCommand('copy');
-        document.body.removeChild(dummy);
-
-        alert('URL이 클립보드에 복사되었습니다!');
-    }
-
-    function captureAndShare() {
-        html2canvas(document.body).then(function(canvas) {
-            // 캔버스를 이미지로 변환
-            var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-            
-            // 이미지 다운로드
-            var link = document.createElement('a');
-            link.download = 'apt_test_result.png';
-            link.href = image;
-            link.click();
-        });
-    }
-    </script>
-
-<div style="padding-top: 3px;">
-    
-<!-- 하단 광고 배너 -->
 <!-- 카카오 애드핏 모바일 -->
 <ins class="kakao_ad_area" style="display:none;"
 data-ad-unit = "DAN-8Lt6yjihOTdqIay1"
@@ -403,24 +400,43 @@ data-ad-height = "50"></ins>
 <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 </div>
 
-<!-- 카카오 애드핏 PC -->
-<!-- <ins class="kakao_ad_area" style="display:none;"
-data-ad-unit = "DAN-90xLqmF4z7W7of9j"
-data-ad-width = "728"
-data-ad-height = "90"></ins>
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> -->
-
-<div id="bottom-ad-banner">
-<!-- 구글 애드센스 -->
-<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-2599437760542212"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
-<script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-</script> -->
+<!-- 버튼 추가 -->
+<div id="button-container">
+    <button onclick="captureAndShare()">📸 결과 이미지 저장하기</button>
+    <button onclick="shareUrl()">🔗 링크 공유하기</button>
+    <button onclick="location.href='index'">🔄 테스트 다시하기</button>
 </div>
+
+
+<script>
+function shareUrl() {
+    var dummy = document.createElement('input'),
+    text = window.location.origin + '/index';
+
+    document.body.appendChild(dummy);
+    dummy.value = text;
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
+
+    alert('URL이 클립보드에 복사되었습니다!');
+}
+
+function captureAndShare() {
+    html2canvas(document.body).then(function(canvas) {
+        // 캔버스를 이미지로 변환
+        var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        
+        // 이미지 다운로드
+        var link = document.createElement('a');
+        link.download = 'apt_test_result.png';
+        link.href = image;
+        link.click();
+    });
+}
+</script>
+
+<div style="padding-top: 3px;">
+    
 </body>
 </html>
