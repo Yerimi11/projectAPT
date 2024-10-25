@@ -340,9 +340,12 @@ $mbtiAnimals = [
                 'selectedResidence' => $selectedResidence
             ];
 
-        } elseif (!isset($_SESSION['result'])) {
-            // POST 데이터가 없고 세션에도 결과가 없는 경우 인덱스 페이지로 리다이렉트
-            header('Location: index');
+        } elseif (isset($_SESSION['result'])) {
+            // 세션에서 결과 불러오기
+            extract($_SESSION['result']);
+        } else {
+            // 결과가 없으면 인덱스 페이지로 리다이렉트
+            header('Location: index.php');
             exit;
         }
 
