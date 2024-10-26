@@ -57,13 +57,13 @@ session_start();
                     <div class="home-icon"><h1>🏠</h1></div>
                 </div>
                 <div class="question" data-question="1">
-                    <h2>1. 갑자기 복권에 당첨되어 아파트를 살 수 있다면?</h2>
-                    <button type="button" onclick="selectAnswer(1, 'B')">도심 한복판의 초고층 아파트</button>
+                    <h2>1. 갑자기 복권에 당첨되어 집을 살 수 있다면?</h2>
                     <button type="button" onclick="selectAnswer(1, 'A')">조용한 시골 마을의 펜트하우스</button>
+                    <button type="button" onclick="selectAnswer(1, 'B')">도심 한복판의 초고층 아파트</button>
                 </div>
                 <div class="question" data-question="2">
                     <h2>2. 주차장에서 차키를 잃어버렸다면?</h2>
-                    <button type="button" onclick="selectAnswer(2, 'A')">이웃들에게 도움을 요청한다</button>
+                    <button type="button" onclick="selectAnswer(2, 'A')">주변의 이웃에게 도움을 요청한다</button>
                     <button type="button" onclick="selectAnswer(2, 'B')">혼자서 끝까지 찾아본다</button>
                 </div>
                 <div class="question" data-question="3">
@@ -73,31 +73,31 @@ session_start();
                 </div>
                 <div class="question" data-question="4">
                     <h2>4. 옆집에서 시끄러운 파티를 한다면?</h2>
-                    <button type="button" onclick="selectAnswer(4, 'A')">참여해서 같이 논다</button>
-                    <button type="button" onclick="selectAnswer(4, 'B')">경비실에 신고한다</button>
+                    <button type="button" onclick="selectAnswer(4, 'A')">신고하거나 찾아간다</button>
+                    <button type="button" onclick="selectAnswer(4, 'B')">내가 오늘만 참아본다</button>
                 </div>
                 <div class="question" data-question="5">
                     <h2>5. 특이한 직업의 주민이 있다면?</h2>
                     <button type="button" onclick="selectAnswer(5, 'A')">호기심에 친해지려 노력한다</button>
-                    <button type="button" onclick="selectAnswer(5, 'B')">의심스러워 경계한다</button>
+                    <button type="button" onclick="selectAnswer(5, 'B')">그러려니 하고 넘어간다</button>
                 </div>
                 <div class="question" data-question="6">
                     <h2>6. 아파트 관리비가 갑자기 2배로 오른다면?</h2>
-                    <button type="button" onclick="selectAnswer(6, 'A')">주민 대표로 나서서 항의한다</button>
-                    <button type="button" onclick="selectAnswer(6, 'B')">조용히 다른 아파트를 알아본다</button>
+                    <button type="button" onclick="selectAnswer(6, 'A')">관리자에게 이유를 물어본다</button>
+                    <button type="button" onclick="selectAnswer(6, 'B')">어쩔 수 없지.. 순응한다</button>
                 </div>
                 <div class="question" data-question="7">
                     <h2>7. 당신의 집 안에 비밀 공간을 만든다면?</h2>
-                    <button type="button" onclick="selectAnswer(7, 'A')">영화관 같은 홈시어터룸</button>
-                    <button type="button" onclick="selectAnswer(7, 'B')">비밀 탈출구가 있는 안전 벙커</button>
+                    <button type="button" onclick="selectAnswer(7, 'A')">나만의 취미 공간</button>
+                    <button type="button" onclick="selectAnswer(7, 'B')">중요한 것을 숨겨둘 수 있는 공간</button>
                 </div>
                 <div class="question" data-question="8">
                     <h2>8. 아파트에 귀신이 산다는 소문이 돈다면?</h2>
-                    <button type="button" onclick="selectAnswer(8, 'B')">겁나서 이사 갈 준비를 한다</button>
                     <button type="button" onclick="selectAnswer(8, 'A')">흥미진진! 직접 탐사 나간다</button>
+                    <button type="button" onclick="selectAnswer(8, 'B')">겁나서 조용히 상황을 파악한다</button>
                 </div>
                 <div class="question" data-question="9">
-                    <h2>9. 아파트 내 반려동물 동아리에 가입한다면?</h2>
+                    <h2>9. 아파트 내 반려동물 모임에 가입해야 한다면?</h2>
                     <button type="button" onclick="selectAnswer(9, 'A')">강아지 산책 모임</button>
                     <button type="button" onclick="selectAnswer(9, 'B')">이국적인 파충류 모임</button>
                 </div>

@@ -217,18 +217,18 @@ function determineMBTI($scores) {
 
             // 질문별 점수 계산
             if ($results[1] == "A") {
-                $scores['E'] += 3; $scores['S'] += 2;
-                $traits[] = "활기찬 도시 생활을 즐기며";
-            } else {
                 $scores['I'] += 3; $scores['S'] += 1;
                 $traits[] = "조용한 환경을 선호하며";
+            } else {
+                $scores['E'] += 3; $scores['S'] += 2;
+                $traits[] = "활기찬 도시 생활을 즐기며";
             }
 
             if ($results[2] == "A") {
                 $scores['E'] += 2; $scores['F'] += 1;
                 $traits[] = "원하는 것을 이야기 할 줄 알고";
             } else {
-                $scores['I'] += 3;
+                $scores['I'] += 2;
                 $traits[] = "자립심이 강하고";
             }
 
@@ -241,11 +241,11 @@ function determineMBTI($scores) {
             }
 
             if ($results[4] == "A") {
-                $scores['E'] += 3;
-                $traits[] = "파티를 즐기기도하고";
+                $scores['E'] += 3; $scores['F'] += 2;
+                $traits[] = "정의롭고";
             } else {
                 $scores['I'] += 3; $scores['S'] += 2; $scores['T'] += 2;
-                $traits[] = "평화로운 환경을 선호하고";
+                $traits[] = "신중하고 참을성이 있고";
             }
 
             if ($results[5] == "A") {
@@ -253,35 +253,34 @@ function determineMBTI($scores) {
                 $traits[] = "새로운 사람들과 어울리기를 좋아하고";
             } else {
                 $scores['I'] += 3; $scores['S'] += 1;
-                $traits[] = "신중하고 조심스럽고";
             }
 
             if ($results[6] == "A") {
                 $scores['E'] += 2; $scores['F'] += 2;
-                $traits[] = "적극적이고 주도적인";
+                $traits[] = "적극적이고 주도적이며";
             } else {
                 $scores['I'] += 2; $scores['T'] += 2; $scores['J'] += 1;
+                $traits[] = "소심할 때도 있고";
             }
 
             if ($results[7] == "A") {
-                $scores['S'] += 3;
-                $traits[] = "문화생활을 즐기고";
+                $scores['S'] += 1; $scores['E'] += 2;
+                $traits[] = "문화생활과 취미를 즐길 줄 알고";
             } else {
-                $scores['N'] += 3;
-                $traits[] = "호기심 많고";
+                $scores['S'] += 1;
+                $traits[] = "약간의 경계심이 있으며";
             }
 
             if ($results[8] == "A") {
-                $scores['S'] += 3; $scores['N'] -= 1;
-                $traits[] = "안전을 중시하고";
-            } else {
                 $scores['N'] += 3; $scores['P'] += 2;
+                $traits[] = "도전적이고";
+            } else {
+                $scores['S'] += 3; $scores['N'] -= 1;
                 $traits[] = "안전을 중시하고";
             }
 
             if ($results[9] == "A") {
                 $scores['S'] += 3;
-                $traits[] = "반려동물을 사랑하고";
                 $traits[] = "현실적이고";
             } else {
                 $scores['N'] += 3;
@@ -290,9 +289,10 @@ function determineMBTI($scores) {
 
             if ($results[10] == "A") {
                 $scores['F'] += 3; $scores['S'] += 3; 
-                $traits[] = "이웃과 소통하는 것을 선호하는";
+                $traits[] = "인간미가 있는";
             } else {
                 $scores['T'] += 3; $scores['J'] += 1;
+                $traits[] = "냉철한 면도 있는";
             }
 
             if ($results[11] == "A") {
@@ -312,7 +312,7 @@ function determineMBTI($scores) {
                 $scores['J'] += 3; $scores['E'] += 1;
             } else {
                 $scores['P'] += 3; $scores['N'] += 1;
-                $traits[] = "변화를 선호하는";
+                $traits[] = "현재를 즐기는";
             }
 
             $mbti = determineMBTI($scores);
@@ -422,7 +422,7 @@ function captureAndShare() {
         
         // 이미지 다운로드
         var link = document.createElement('a');
-        link.download = 'apt_test_result.png';
+        link.download = 'apt_<?php echo $mbti; ?>.png';
         link.href = image;
         link.click();
     });
