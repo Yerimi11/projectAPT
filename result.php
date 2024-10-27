@@ -29,13 +29,13 @@ $animals = [
 $mbtiAnimals = [
     'ISTJ' => ['animal' => '🐘', 'residence' => '강남 오피스텔'],
     'ISFJ' => ['animal' => '🐨', 'residence' => '한적한 시골 농가'],
-    'INFJ' => ['animal' => '🦉', 'residence' => '북촌 한옥'],
+    'INFJ' => ['animal' => '🦉', 'residence' => '포켓몬 몬스터볼 안'],
     'INTJ' => ['animal' => '🦊', 'residence' => '편의점 냉장고 안'],
     'ISTP' => ['animal' => '🐱', 'residence' => '어제 배송온 택배 박스'],
     'ISFP' => ['animal' => '🐰', 'residence' => '해변가 별장'],
-    'INFP' => ['animal' => '🦄', 'residence' => '포켓몬 몬스터볼 안'],
+    'INFP' => ['animal' => '🦄', 'residence' => '구름 위의 솜사탕 펜트하우스'],
     'INTP' => ['animal' => '🦅', 'residence' => '숲속 글램핑장'],
-    'ESTP' => ['animal' => '🐯', 'residence' => '길바닥'],
+    'ESTP' => ['animal' => '🐯', 'residence' => '북촌 한옥'],
     'ESFP' => ['animal' => '🦜', 'residence' => '지하철역 화장실'],
     'ENFP' => ['animal' => '🐼', 'residence' => '한강뷰 펜트하우스'],
     'ENTP' => ['animal' => '🦁', 'residence' => '스폰지밥의 파인애플 집'],
@@ -55,11 +55,11 @@ $residences = [
     '도심 속 빌라',
     '산장',                  // 7 X
     '해변가 별장',
-    '길바닥',                 // 9 X
+    '길바닥',                 
     '공항 벤치 위',
     '숲속 글램핑장',
-    '지하철역 화장실',          // 12 X
-    '구름 위의 솜사탕 펜트하우스', // 13 X
+    '지하철역 화장실',          
+    '구름 위의 솜사탕 펜트하우스',
     '편의점 냉장고 안',
     '거대 햄스터 쳇바퀴',
     '슈퍼마리오의 파이프 속',
@@ -104,10 +104,10 @@ function determineMBTI($scores) {
         }
         h1 {
             color: #ff8080;
-            font-size: 28px;
+            font-size: 24px;
         }
         #character {
-            font-size: 120px;
+            font-size: 90px;
             margin: 0px 0;
         }
         #description {
@@ -117,7 +117,7 @@ function determineMBTI($scores) {
         }
         h2 {
             color: #5d5d5d;
-            font-size: 24px;
+            font-size: 20px;
         }
         ul {
             list-style-type: none;
@@ -345,13 +345,13 @@ function determineMBTI($scores) {
 
         ?>
         <div id="description">
-            <p style="font-size: 21px; color: #ff6b6b; background-color: #fff0f0; padding: 10px; border-radius: 10px;">
+            <p style="font-size: 21px; color: #ff6b6b; background-color: #fff0f0; padding: 10px 10px 5px 10px; border-radius: 10px; margin-bottom: 5px;">
                 당신의 아파트 동물 캐릭터는 <br>
                 <strong style="color: #4a69bd;"><?php echo $animals[$selectedAnimal][0]; ?></strong>
             </p>
             <div id="character"><?php echo $selectedAnimal; ?></div>
             
-            <p style="font-size: 18px; color: #333; padding: 0px; border-radius: 10px; margin-top: 20px;">
+            <p style="font-size: 18px; color: #333; padding: 0px; border-radius: 10px; margin-top: 5px;">
                 <?php
                 foreach ($traits as $trait) {
                     echo $trait . "<br>";
@@ -360,8 +360,8 @@ function determineMBTI($scores) {
                 특성을 가진 주민이군요!
                 <p><?php echo $resultDescription; ?></p>
             </p>
-            <p style="font-size: 24px; color: #ff8080; background-color: #fff0f0; padding: 10px; border-radius: 10px;">
-                <?php echo $animals[$selectedAnimal][0]; ?>같은 당신에게 어울리는 재미로 보는 주거지는 <br>
+            <p style="font-size: 20px; color: #ff8080; background-color: #fff0f0; padding: 10px; border-radius: 10px;">
+                <?php echo $animals[$selectedAnimal][0]; ?>같은 당신에게 어울리는<br>재미로 보는 주거지는 <br>
                 <strong style="color: #4a69bd;"><?php echo $selectedResidence; ?></strong></p>
         </div>
         
@@ -369,7 +369,7 @@ function determineMBTI($scores) {
         <ul>
             <?php
             $traitDescriptions = [
-                'E' => '활발, 사교적',  'I' => '독립적, 조용',
+                'E' => '활발함, 사교적',  'I' => '독립적, 조용함',
                 'S' => '실용적, 안정적', 'N' => '창의적, 모험적',
                 'F' => '감정적',       'T' => '논리적',
                 'J' => '계획적',       'P' => '즉흥적'
