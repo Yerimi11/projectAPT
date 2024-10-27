@@ -107,7 +107,7 @@ function determineMBTI($scores) {
             font-size: 24px;
         }
         #character {
-            font-size: 90px;
+            font-size: 80px;
             margin: 0px 0;
         }
         #description {
@@ -245,7 +245,7 @@ function determineMBTI($scores) {
                 $traits[] = "정의롭고";
             } else {
                 $scores['I'] += 3; $scores['S'] += 2; $scores['T'] += 2;
-                $traits[] = "신중하고 참을성이 있고";
+                $traits[] = "참을성이 있고";
             }
 
             if ($results[5] == "A") {
@@ -281,7 +281,7 @@ function determineMBTI($scores) {
 
             if ($results[9] == "A") {
                 $scores['S'] += 3;
-                $traits[] = "현실적이고";
+                $traits[] = "현실적이고 경험으로 판단하는";
             } else {
                 $scores['N'] += 3;
                 $traits[] = "독특한 취미를 가지기도하는";
@@ -297,6 +297,7 @@ function determineMBTI($scores) {
 
             if ($results[11] == "A") {
                 $scores['J'] += 3; $scores['E'] += 1;
+                $traits[] = "신중한 경향이 있고";
             } else {
                 $scores['P'] += 3; $scores['I'] += 1;
             }
@@ -310,6 +311,7 @@ function determineMBTI($scores) {
 
             if ($results[13] == "A") {
                 $scores['J'] += 3; $scores['E'] += 1;
+                $traits[] = "약속을 중요시 여기는";
             } else {
                 $scores['P'] += 3; $scores['N'] += 1;
                 $traits[] = "현재를 즐기는";

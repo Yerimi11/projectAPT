@@ -68,7 +68,7 @@ session_start();
                 </div>
                 <div class="question" data-question="3">
                     <h2>3. 아파트 엘리베이터에서 유명인을 만난다면?</h2>
-                    <button type="button" onclick="selectAnswer(3, 'A')">셀카 찍고 SNS나 주변에 자랑한다</button>
+                    <button type="button" onclick="selectAnswer(3, 'A')">셀카 찍고 SNS에 자랑한다</button>
                     <button type="button" onclick="selectAnswer(3, 'B')">조용히 인사하거나 못본척한다</button>
                 </div>
                 <div class="question" data-question="4">
